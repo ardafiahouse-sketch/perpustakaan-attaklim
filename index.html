@@ -154,6 +154,165 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .link-more{display:inline-flex;align-items:center;gap:8px;color:var(--p700);font-weight:600;margin-top:44px}
 .link-more:hover{color:var(--p900)}
 
+/* === SECTION ULASAN PENGUNJUNG === */
+.ulasan-section{padding:90px 0;background:linear-gradient(to bottom,var(--p50),var(--w) 60%,var(--p50))}
+
+.rating-summary{background:var(--w);border:1px solid var(--p100);border-radius:24px;box-shadow:0 20px 50px rgba(46,99,71,.08);padding:36px 32px;max-width:900px;margin:0 auto 40px;display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;position:relative;overflow:hidden}
+.rating-summary::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(to right,var(--p400),var(--g500),var(--p500))}
+
+.rating-big{text-align:center;padding-right:32px;border-right:1px solid var(--p100)}
+.rating-big-num{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;color:var(--p800);line-height:1;letter-spacing:-2px}
+.rating-big-num small{font-size:1.5rem;color:var(--gr400,#9ca3af);font-weight:400}
+.rating-big-stars{display:flex;gap:2px;justify-content:center;margin:10px 0 6px;color:var(--g500)}
+.rating-big-stars svg{width:20px;height:20px}
+.rating-big-count{font-size:12.5px;color:var(--gr500);font-weight:500}
+
+.rating-distribution{display:flex;flex-direction:column;gap:8px}
+.rating-dist-row{display:flex;align-items:center;gap:10px;font-size:13px}
+.rating-dist-label{color:var(--gr600);font-weight:600;width:32px;display:flex;align-items:center;gap:3px}
+.rating-dist-label svg{color:var(--g500)}
+.rating-dist-bar{flex:1;height:10px;background:var(--p50);border-radius:999px;overflow:hidden;position:relative}
+.rating-dist-fill{height:100%;background:linear-gradient(to right,var(--g400),var(--g500));border-radius:999px;transition:width .6s cubic-bezier(.22,.61,.36,1);width:0}
+.rating-dist-count{color:var(--gr500);font-weight:500;width:44px;text-align:right;font-size:12.5px}
+
+.rating-cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.rating-cta-text{font-size:12.5px;color:var(--gr500);line-height:1.5;max-width:180px}
+.rating-cta .btn{padding:12px 24px;font-size:14px;white-space:nowrap}
+
+/* Filter ulasan */
+.ulasan-filters{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-bottom:32px}
+.filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.filter-group-label{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--gr500);margin-right:4px}
+.filter-pill{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;border:1.5px solid transparent;background:var(--w);color:var(--gr700);cursor:pointer;transition:.2s;font-family:inherit;display:inline-flex;align-items:center;gap:5px;box-shadow:0 2px 8px rgba(46,99,71,.05)}
+.filter-pill:hover{background:var(--p50)}
+.filter-pill.active{background:var(--p600);color:var(--w);box-shadow:0 6px 16px rgba(70,157,111,.3)}
+.filter-pill svg{color:var(--g500)}
+.filter-pill.active svg{color:var(--g400)}
+
+/* Grid ulasan */
+.ulasan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.ulasan-card{background:var(--w);border:1px solid var(--p100);border-radius:20px;padding:24px 24px 20px;transition:.35s;position:relative;display:flex;flex-direction:column;height:100%}
+.ulasan-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(46,99,71,.1);border-color:var(--p300)}
+.ulasan-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.ulasan-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;flex-shrink:0;box-shadow:0 4px 12px rgba(46,99,71,.15);letter-spacing:-1px}
+.ulasan-user{flex:1;min-width:0}
+.ulasan-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--p900);line-height:1.3;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ulasan-role{font-size:11.5px;color:var(--gr500);font-weight:500;display:flex;align-items:center;gap:4px}
+.ulasan-role::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g500)}
+.ulasan-date{font-size:11.5px;color:var(--gr400,#9ca3af);white-space:nowrap}
+.ulasan-stars{display:flex;gap:2px;margin-bottom:12px;color:var(--g500)}
+.ulasan-stars svg{width:16px;height:16px}
+.ulasan-stars svg.empty{color:var(--p200)}
+.ulasan-message{font-size:14px;color:var(--gr700);line-height:1.7;white-space:pre-line;flex:1}
+.ulasan-suggestion{margin-top:16px;padding:12px 16px;background:linear-gradient(135deg,var(--p50),var(--p100));border:1px solid var(--p200);border-radius:12px;position:relative}
+.ulasan-suggestion-head{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--p700);margin-bottom:6px}
+.ulasan-suggestion-head svg{color:var(--g600)}
+.ulasan-suggestion-text{font-size:13px;color:var(--gr700);line-height:1.65;white-space:pre-line}
+
+/* Load more */
+.load-more-wrap{text-align:center;margin-top:44px}
+.load-more-btn{display:inline-flex;align-items:center;gap:10px;background:var(--w);border:2px solid var(--p500);color:var(--p700);font-size:14.5px;font-weight:600;padding:14px 32px;border-radius:999px;cursor:pointer;transition:.25s;font-family:inherit}
+.load-more-btn:hover{background:var(--p50);border-color:var(--p600);transform:translateY(-2px);box-shadow:0 8px 20px rgba(70,157,111,.15)}
+
+.empty-state{text-align:center;padding:60px 20px;grid-column:1/-1}
+.empty-state-icon{width:80px;height:80px;border-radius:50%;background:var(--p50);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--p400)}
+.empty-state h3{font-size:1.2rem;color:var(--p800);margin-bottom:8px;font-family:'Playfair Display',serif}
+.empty-state p{font-size:14px;color:var(--gr500);max-width:420px;margin:0 auto 20px;line-height:1.7}
+
+/* === FORM ULASAN (MODAL) === */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;animation:fadeIn .25s ease}
+.modal-overlay.active{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.modal{background:var(--w);border-radius:24px;max-width:640px;width:100%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3);border:1px solid var(--p100);margin:auto;overflow:hidden;animation:slideUp .35s cubic-bezier(.22,.61,.36,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.modal.modal-wide{max-width:840px}
+.modal.modal-narrow{max-width:460px;padding:34px}
+
+.modal-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.95);font-size:24px;color:var(--gr700);cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.modal-close:hover{background:var(--p50);transform:rotate(90deg)}
+
+/* Detail Modal (Buku/Galeri) */
+.modal-cover{width:100%;height:340px;background-size:cover;background-position:center;background-color:var(--p100);position:relative}
+.modal-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,0,0,.3) 100%)}
+.modal-cover-badge{position:absolute;bottom:20px;left:24px;z-index:2;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;background:var(--g500);color:var(--w);padding:7px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(212,175,55,.5)}
+.modal-body{padding:32px 36px 36px}
+.modal-body h2{font-family:'Playfair Display',serif;font-size:1.65rem;color:var(--p900);line-height:1.25;margin-bottom:14px}
+.modal-meta{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--gr500);padding-bottom:20px;margin-bottom:22px;border-bottom:1px solid var(--p100)}
+.modal-meta-item{display:flex;align-items:center;gap:6px}
+.modal-meta-item svg{color:var(--p500);flex-shrink:0}
+.modal-desc{font-size:15px;color:var(--gr700);line-height:1.85;white-space:pre-line}
+.modal-gallery{margin-top:28px;padding-top:24px;border-top:1px solid var(--p100)}
+.modal-gallery h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--p800);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.modal-gallery h3 svg{color:var(--g500)}
+.modal-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.modal-gallery-item{aspect-ratio:1;border-radius:12px;overflow:hidden;cursor:pointer;background:var(--p50);transition:.25s}
+.modal-gallery-item:hover{transform:scale(1.04);box-shadow:0 12px 30px rgba(46,99,71,.2)}
+.modal-gallery-item img{width:100%;height:100%;object-fit:cover}
+.modal-share{display:flex;gap:10px;margin-top:28px;padding-top:24px;border-top:1px solid var(--p100);flex-wrap:wrap}
+.modal-share-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;border:1.5px solid var(--p200);background:var(--w);color:var(--p700);transition:.2s;text-decoration:none}
+.modal-share-btn:hover{background:var(--p50);border-color:var(--p400)}
+.modal-share-btn.wa{border-color:#25D366;color:#25D366}
+.modal-share-btn.wa:hover{background:rgba(37,211,102,.08)}
+
+/* Form Modal Ulasan */
+.form-header{padding:32px 36px 24px;background:linear-gradient(135deg,var(--p50),var(--p100));border-radius:24px 24px 0 0;position:relative;overflow:hidden}
+.form-header::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:rgba(212,175,55,.15)}
+.form-header-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--p500),var(--p700));display:flex;align-items:center;justify-content:center;color:var(--w);margin-bottom:16px;box-shadow:0 8px 20px rgba(70,157,111,.3);position:relative;z-index:2}
+.form-header h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--p900);margin-bottom:6px;position:relative;z-index:2}
+.form-header p{font-size:13.5px;color:var(--gr600);line-height:1.6;position:relative;z-index:2}
+
+.form-body{padding:28px 36px 32px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--p800);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.form-group label .required{color:#dc2626}
+.form-group input[type="text"],.form-group textarea,.form-group select{width:100%;padding:14px 16px;border:1.5px solid var(--p200);border-radius:12px;font-size:14.5px;font-family:inherit;background:var(--p50);outline:none;transition:.2s;color:var(--gr800);resize:vertical}
+.form-group textarea{min-height:110px;line-height:1.6}
+.form-group input[type="text"]:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--p500);background:var(--w);box-shadow:0 0 0 4px var(--p100)}
+.form-hint{font-size:11.5px;color:var(--gr500);margin-top:6px;line-height:1.5;display:block}
+
+/* Star Rating Input */
+.star-input{display:flex;gap:6px;flex-direction:row-reverse;justify-content:flex-start;width:fit-content}
+.star-input input{display:none}
+.star-input label{cursor:pointer;color:var(--p200);transition:color .2s,transform .2s;display:flex;padding:0 2px}
+.star-input label:hover,.star-input label:hover ~ label,.star-input input:checked ~ label{color:var(--g500)}
+.star-input label:hover{transform:scale(1.15)}
+.star-input label svg{width:32px;height:32px}
+
+/* Suggestion Toggle */
+.suggestion-toggle{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--p50);border:1.5px solid var(--p200);border-radius:12px;cursor:pointer;transition:.2s;user-select:none}
+.suggestion-toggle:hover{border-color:var(--p400)}
+.suggestion-toggle input{width:18px;height:18px;accent-color:var(--p600);cursor:pointer}
+.suggestion-toggle-text{font-size:13.5px;color:var(--gr700);font-weight:500;line-height:1.4}
+.suggestion-toggle-text strong{color:var(--p800)}
+.suggestion-fields{display:none;margin-top:14px;padding:18px 18px 4px;background:linear-gradient(135deg,var(--p50),var(--p100));border-radius:14px;border:1px dashed var(--p300)}
+.suggestion-fields.show{display:block;animation:slideDown .3s ease}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+.form-submit{width:100%;justify-content:center;padding:15px;font-size:15px;margin-top:8px}
+
+.form-error{display:none;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;padding:12px 16px;border-radius:12px;font-size:13.5px;font-weight:500;margin-bottom:16px}
+.form-error.show{display:block}
+
+/* === LIGHTBOX === */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:none;align-items:center;justify-content:center;padding:40px 20px;animation:fadeIn .3s ease}
+.lightbox.active{display:flex}
+.lightbox img{max-width:100%;max-height:calc(100vh - 100px);object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox-close{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;backdrop-filter:blur(8px)}
+.lightbox-close:hover{background:rgba(255,255,255,.3);transform:rotate(90deg)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;backdrop-filter:blur(8px)}
+.lightbox-nav:hover{background:rgba(255,255,255,.3)}
+.lightbox-nav.prev{left:20px}
+.lightbox-nav.next{right:20px}
+.lightbox-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:500;background:rgba(0,0,0,.5);padding:8px 18px;border-radius:999px;backdrop-filter:blur(8px)}
+
+/* === TOAST === */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--p800);color:#fff;padding:14px 24px;border-radius:999px;font-size:13.5px;font-weight:500;box-shadow:0 12px 30px rgba(0,0,0,.25);z-index:300;transition:transform .35s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:10px;max-width:90vw}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast svg{color:var(--g400);flex-shrink:0}
+.toast.error{background:#dc2626}
+.toast.error svg{color:#fecaca}
+
 .footer{background:var(--p800);color:var(--w);padding-top:60px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1.5fr;gap:48px;padding-bottom:48px}
 .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
@@ -169,60 +328,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .footer-list.with-icon svg{flex-shrink:0;margin-top:3px}
 .footer-bottom{border-top:1px solid var(--p700);padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.6)}
 
-/* === MODAL DETAIL GALERI === */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;animation:fadeIn .25s ease}
-.modal-overlay.active{display:flex}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-.modal{background:var(--w);border-radius:24px;max-width:840px;width:100%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3);border:1px solid var(--p100);margin:auto;overflow:hidden;animation:slideUp .35s cubic-bezier(.22,.61,.36,1)}
-@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
-.modal-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.95);font-size:24px;color:var(--gr700);cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.modal-close:hover{background:var(--p50);transform:rotate(90deg)}
-
-.modal-cover{width:100%;height:340px;background-size:cover;background-position:center;background-color:var(--p100);position:relative}
-.modal-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,0,0,.3) 100%)}
-.modal-cover-badge{position:absolute;bottom:20px;left:24px;z-index:2;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;background:var(--g500);color:var(--w);padding:7px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(212,175,55,.5)}
-
-.modal-body{padding:32px 36px 36px}
-.modal-body h2{font-family:'Playfair Display',serif;font-size:1.65rem;color:var(--p900);line-height:1.25;margin-bottom:14px}
-.modal-meta{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--gr500);padding-bottom:20px;margin-bottom:22px;border-bottom:1px solid var(--p100)}
-.modal-meta-item{display:flex;align-items:center;gap:6px}
-.modal-meta-item svg{color:var(--p500);flex-shrink:0}
-
-.modal-desc{font-size:15px;color:var(--gr700);line-height:1.85;white-space:pre-line}
-
-.modal-gallery{margin-top:28px;padding-top:24px;border-top:1px solid var(--p100)}
-.modal-gallery h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--p800);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.modal-gallery h3 svg{color:var(--g500)}
-.modal-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
-.modal-gallery-item{aspect-ratio:1;border-radius:12px;overflow:hidden;cursor:pointer;background:var(--p50);transition:.25s;position:relative}
-.modal-gallery-item:hover{transform:scale(1.04);box-shadow:0 12px 30px rgba(46,99,71,.2)}
-.modal-gallery-item img{width:100%;height:100%;object-fit:cover}
-
-.modal-share{display:flex;gap:10px;margin-top:28px;padding-top:24px;border-top:1px solid var(--p100);flex-wrap:wrap}
-.modal-share-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;border:1.5px solid var(--p200);background:var(--w);color:var(--p700);transition:.2s;text-decoration:none}
-.modal-share-btn:hover{background:var(--p50);border-color:var(--p400)}
-.modal-share-btn.wa{border-color:#25D366;color:#25D366}
-.modal-share-btn.wa:hover{background:rgba(37,211,102,.08)}
-
-/* === LIGHTBOX === */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:none;align-items:center;justify-content:center;padding:40px 20px;animation:fadeIn .3s ease}
-.lightbox.active{display:flex}
-.lightbox img{max-width:100%;max-height:calc(100vh - 100px);object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.lightbox-close{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;backdrop-filter:blur(8px)}
-.lightbox-close:hover{background:rgba(255,255,255,.3);transform:rotate(90deg)}
-.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;backdrop-filter:blur(8px)}
-.lightbox-nav:hover{background:rgba(255,255,255,.3)}
-.lightbox-nav.prev{left:20px}
-.lightbox-nav.next{right:20px}
-.lightbox-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;font-weight:500;background:rgba(0,0,0,.5);padding:8px 18px;border-radius:999px;backdrop-filter:blur(8px)}
-
-/* === TOAST === */
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--p800);color:#fff;padding:14px 24px;border-radius:999px;font-size:13.5px;font-weight:500;box-shadow:0 12px 30px rgba(0,0,0,.25);z-index:300;transition:transform .35s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:10px}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.toast svg{color:var(--g400)}
-
 /* === RESPONSIVE === */
 @media(max-width:1024px){
   .galeri-preview-grid{grid-template-columns:repeat(3,1fr)}
@@ -236,6 +341,11 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .leader-photo{height:220px}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr;gap:32px}
+
+  .rating-summary{grid-template-columns:1fr;gap:24px;text-align:center;padding:28px 22px}
+  .rating-big{border-right:none;border-bottom:1px solid var(--p100);padding-right:0;padding-bottom:24px}
+  .rating-cta{margin-top:4px}
+  .rating-cta-text{max-width:100%}
 
   .nav-toggle{display:inline-flex}
 
@@ -310,6 +420,11 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .galeri-preview-title{font-size:.92rem}
   .galeri-preview-card.featured .galeri-preview-title{font-size:1.05rem}
   .galeri-preview-desc{font-size:11.5px}
+
+  .ulasan-grid{grid-template-columns:1fr}
+  .rating-big-num{font-size:3rem}
+  .filter-group-label{width:100%;margin-bottom:2px}
+  .form-header,.form-body{padding-left:22px;padding-right:22px}
 }
 @media(max-width:600px){
   .book-grid{grid-template-columns:repeat(2,1fr)}
@@ -327,6 +442,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .lightbox-nav{width:42px;height:42px}
   .lightbox-nav.prev{left:8px}
   .lightbox-nav.next{right:8px}
+  .star-input label svg{width:28px;height:28px}
+  .ulasan-card{padding:20px 20px 18px}
 }
 </style>
 </head>
@@ -485,6 +602,55 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   </div>
 </section>
 
+<!-- ============ SECTION ULASAN PENGUNJUNG ============ -->
+<section class="ulasan-section" id="ulasan-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Suara Pengunjung</span>
+      <h2>Ulasan Pengunjung</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="rating-summary" id="ratingSummary">
+      <div class="rating-big">
+        <div class="rating-big-num" id="ratingBigNum">—<small>/5</small></div>
+        <div class="rating-big-stars" id="ratingBigStars"></div>
+        <div class="rating-big-count" id="ratingBigCount">Belum ada ulasan</div>
+      </div>
+      <div class="rating-distribution" id="ratingDistribution"></div>
+      <div class="rating-cta">
+        <p class="rating-cta-text">Bagikan pengalamanmu atau sampaikan saran untuk perpustakaan kami</p>
+        <button class="btn btn-gold" id="btnTulisUlasan">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Tulis Ulasan
+        </button>
+      </div>
+    </div>
+
+    <div class="ulasan-filters" id="ulasanFilters">
+      <div class="filter-group" id="filterRatingGroup">
+        <span class="filter-group-label">Rating</span>
+      </div>
+      <div class="filter-group" id="filterRoleGroup">
+        <span class="filter-group-label">Peran</span>
+      </div>
+    </div>
+
+    <div class="ulasan-grid" id="ulasanGrid">
+      <div class="galeri-skeleton" style="height:200px"></div>
+      <div class="galeri-skeleton" style="height:200px"></div>
+      <div class="galeri-skeleton" style="height:200px"></div>
+    </div>
+
+    <div class="load-more-wrap" id="loadMoreUlasanWrap" style="display:none">
+      <button class="load-more-btn" id="loadMoreUlasanBtn">
+        Muat Lebih Banyak
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container footer-grid">
     <div>
@@ -532,9 +698,87 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 
 <!-- Modal Detail Galeri -->
 <div class="modal-overlay" id="galeriModal">
-  <div class="modal">
+  <div class="modal modal-wide">
     <button class="modal-close" data-close-galeri>&times;</button>
     <div id="galeriModalContent"></div>
+  </div>
+</div>
+
+<!-- Modal Tulis Ulasan -->
+<div class="modal-overlay" id="ulasanModal">
+  <div class="modal">
+    <button class="modal-close" data-close-ulasan>&times;</button>
+    <div class="form-header">
+      <div class="form-header-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </div>
+      <h3>Tulis Ulasan</h3>
+      <p>Bagikan pengalamanmu menggunakan Perpustakaan At-Taklim. Ulasanmu membantu kami jadi lebih baik.</p>
+    </div>
+    <div class="form-body">
+      <div class="form-error" id="ulasanError"></div>
+      <form id="ulasanForm">
+        <div class="form-group">
+          <label>Nama Lengkap <span class="required">*</span></label>
+          <input type="text" id="ulasanNama" placeholder="Contoh: Ahmad Fauzi" required maxlength="80" />
+        </div>
+
+        <div class="form-group">
+          <label>Peran <span class="required">*</span></label>
+          <select id="ulasanRole" required>
+            <option value="">Pilih peran Anda</option>
+            <option value="Siswa/Siswi">Siswa/Siswi</option>
+            <option value="Guru">Guru</option>
+            <option value="Alumni">Alumni</option>
+            <option value="Umum">Umum</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Rating <span class="required">*</span></label>
+          <div class="star-input" id="starInput">
+            <input type="radio" name="rating" id="star5" value="5" required /><label for="star5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></label>
+            <input type="radio" name="rating" id="star4" value="4" /><label for="star4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></label>
+            <input type="radio" name="rating" id="star3" value="3" /><label for="star3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></label>
+            <input type="radio" name="rating" id="star2" value="2" /><label for="star2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></label>
+            <input type="radio" name="rating" id="star1" value="1" /><label for="star1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Ulasan / Komentar <span class="required">*</span></label>
+          <textarea id="ulasanMessage" placeholder="Ceritakan pengalamanmu menggunakan layanan perpustakaan..." required maxlength="500"></textarea>
+          <span class="form-hint">Maksimal 500 karakter. Ceritakan yang positif atau yang perlu diperbaiki.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="suggestion-toggle">
+            <input type="checkbox" id="suggestionToggle" />
+            <span class="suggestion-toggle-text"><strong>Saya ingin menyampaikan saran</strong><br>Rekomendasi koleksi buku, pelayanan, atau fasilitas</span>
+          </label>
+          <div class="suggestion-fields" id="suggestionFields">
+            <div class="form-group">
+              <label>Jenis Saran</label>
+              <select id="suggestionType">
+                <option value="Koleksi Buku">📚 Koleksi Buku</option>
+                <option value="Pelayanan">👥 Pelayanan</option>
+                <option value="Fasilitas">🏛️ Fasilitas</option>
+                <option value="Lainnya">💡 Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:14px">
+              <label>Detail Saran</label>
+              <textarea id="suggestionText" placeholder="Contoh: Tolong tambahkan buku ensiklopedia sains untuk kelas X..." style="min-height:90px" maxlength="500"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold form-submit" id="submitUlasanBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          Kirim Ulasan
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 
@@ -549,7 +793,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 
 <!-- Modal SLiMS -->
 <div class="modal-overlay" id="ipModal">
-  <div class="modal" style="padding:34px;max-width:460px">
+  <div class="modal modal-narrow">
     <button class="modal-close" data-close-ip>&times;</button>
     <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--p500),var(--p700));display:flex;align-items:center;justify-content:center;color:var(--w);margin-bottom:18px">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
@@ -573,6 +817,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 
 <script src="config.js"></script>
 <script>
+// === Page transition ===
 document.querySelectorAll('a[href]').forEach(link => {
   const href = link.getAttribute('href');
   if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
@@ -590,38 +835,20 @@ document.querySelectorAll('a[href]').forEach(link => {
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   if(!toggle || !links) return;
-
-  function closeMenu(){
-    links.classList.remove('open');
-    toggle.classList.remove('open');
-  }
-  function openMenu(){
-    links.classList.add('open');
-    toggle.classList.add('open');
-  }
-
+  function closeMenu(){ links.classList.remove('open'); toggle.classList.remove('open'); }
+  function openMenu(){ links.classList.add('open'); toggle.classList.add('open'); }
   toggle.addEventListener('click', function(e){
     e.stopPropagation();
     links.classList.contains('open') ? closeMenu() : openMenu();
   });
-
   document.addEventListener('click', function(e){
     if(!links.classList.contains('open')) return;
     if(links.contains(e.target) || toggle.contains(e.target)) return;
     closeMenu();
   });
-
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', closeMenu);
-  });
-
-  window.addEventListener('resize', function(){
-    if(window.innerWidth > 900) closeMenu();
-  });
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeMenu();
-  });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 900) closeMenu(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
 })();
 
 // === Utilities ===
@@ -634,12 +861,52 @@ function formatDate(d){
   if(isNaN(dt.getTime())) return d;
   return dt.getDate() + ' ' + bulan[dt.getMonth()] + ' ' + dt.getFullYear();
 }
-function showToast(msg){
+function showToast(msg, type){
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
+  t.classList.toggle('error', type === 'error');
   t.classList.add('show');
   clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+function escapeHTMLInDate(){}
+
+// Avatar warna otomatis (deterministik berdasarkan nama)
+const AVATAR_COLORS = [
+  'linear-gradient(135deg,#5bbf8a,#387d59)',
+  'linear-gradient(135deg,#e6c76a,#b8942c)',
+  'linear-gradient(135deg,#7fd3a6,#469d6f)',
+  'linear-gradient(135deg,#a5e3c2,#387d59)',
+  'linear-gradient(135deg,#10b981,#047857)',
+  'linear-gradient(135deg,#f59e0b,#b45309)',
+  'linear-gradient(135deg,#8b5cf6,#6d28d9)',
+  'linear-gradient(135deg,#ec4899,#be185d)',
+  'linear-gradient(135deg,#06b6d4,#0e7490)',
+  'linear-gradient(135deg,#ef4444,#b91c1c)'
+];
+function getAvatarColor(name){
+  if(!name) return AVATAR_COLORS[0];
+  let hash = 0;
+  for(let i = 0; i < name.length; i++){ hash = name.charCodeAt(i) + ((hash << 5) - hash); }
+  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+}
+function getInitial(name){
+  if(!name) return '?';
+  return name.trim().charAt(0).toUpperCase();
+}
+
+// Render bintang
+function renderStars(rating, size){
+  const sz = size || 16;
+  let html = '';
+  for(let i = 1; i <= 5; i++){
+    if(i <= rating){
+      html += '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>';
+    } else {
+      html += '<svg class="empty" width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>';
+    }
+  }
+  return html;
 }
 
 // ==================== BOOKS ====================
@@ -675,46 +942,25 @@ async function loadBooks(){
   try {
     const SUPABASE_URL = window.APP_CONFIG.SUPABASE_URL;
     const SUPABASE_ANON_KEY = window.APP_CONFIG.SUPABASE_ANON_KEY;
-
-    const res = await fetch(
-      SUPABASE_URL + '/rest/v1/books?select=*&order=id.asc&limit=5000',
-      {
-        headers: {
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-        }
-      }
-    );
-
+    const res = await fetch(SUPABASE_URL + '/rest/v1/books?select=*&order=id.asc&limit=5000', {
+      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+    });
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const raw = await res.json();
-
     BOOKS = raw.map(b => ({
-      id: parseInt(b.id, 10),
-      title: b.title || '',
-      author: b.author || '',
-      publisher: b.publisher || '',
-      year: b.year || '',
-      isbn: b.isbn || '',
-      call_number: b.call_number || '',
-      classification: b.classification || '',
-      subject: b.subject || '',
-      category: b.category || 'Umum',
-      description: b.description || '',
-      language: b.language || 'Indonesia',
-      place: b.place || '',
-      total_items: b.total_items || 1,
-      cover: b.cover || null,
-      gradient: 'linear-gradient(135deg,#a5e3c2,#469d6f)'
+      id: parseInt(b.id, 10), title: b.title || '', author: b.author || '',
+      publisher: b.publisher || '', year: b.year || '', isbn: b.isbn || '',
+      call_number: b.call_number || '', classification: b.classification || '',
+      subject: b.subject || '', category: b.category || 'Umum',
+      description: b.description || '', language: b.language || 'Indonesia',
+      place: b.place || '', total_items: b.total_items || 1,
+      cover: b.cover || null, gradient: 'linear-gradient(135deg,#a5e3c2,#469d6f)'
     }));
-
     console.log('✅ Loaded', BOOKS.length, 'buku dari Supabase');
-
     const shuffled = [...BOOKS].sort(() => 0.5 - Math.random());
     const featured = shuffled.slice(0, 4);
     const grid = document.getElementById('featuredBooks');
     if(grid) grid.innerHTML = featured.map(renderBookCard).join('');
-
     const statTotalBuku = document.getElementById('statTotalBuku');
     if(statTotalBuku) statTotalBuku.textContent = BOOKS.length.toLocaleString('id-ID') + '+';
     const kategoriSet = new Set(BOOKS.map(b => b.category).filter(Boolean));
@@ -742,18 +988,13 @@ function openDetail(id){
     </div>`;
   }
   const rows = [
-    { label: 'ISBN', value: b.isbn },
-    { label: 'Penerbit', value: b.publisher },
-    { label: 'Tahun Terbit', value: b.year },
-    { label: 'Tempat Terbit', value: b.place },
-    { label: 'Bahasa', value: b.language },
-    { label: 'No. Panggil', value: b.call_number },
-    { label: 'Klasifikasi', value: b.classification },
-    { label: 'Subjek', value: b.subject },
+    { label: 'ISBN', value: b.isbn }, { label: 'Penerbit', value: b.publisher },
+    { label: 'Tahun Terbit', value: b.year }, { label: 'Tempat Terbit', value: b.place },
+    { label: 'Bahasa', value: b.language }, { label: 'No. Panggil', value: b.call_number },
+    { label: 'Klasifikasi', value: b.classification }, { label: 'Subjek', value: b.subject },
     { label: 'Jumlah Eksemplar', value: b.total_items ? b.total_items + ' eksemplar' : '' },
     { label: 'Deskripsi Fisik', value: b.description },
   ].filter(r => r.value && r.value !== 0);
-
   detailContent.innerHTML = `
     <div class="detail-header">
       ${coverHTML}
@@ -788,38 +1029,28 @@ let GALLERY = [];
 function renderGaleriCard(item, index){
   const isFeatured = index === 0;
   const photoCount = (item.images && item.images.length) ? item.images.length : 0;
-
   let coverHTML;
   if(item.cover){
     coverHTML = '<img src="' + esc(item.cover) + '" alt="' + esc(item.title) + '" loading="lazy" onerror="this.parentElement.style.background=\'linear-gradient(135deg,#a5e3c2,#469d6f)\';this.remove();">';
-  } else {
-    coverHTML = '';
-  }
-
+  } else { coverHTML = ''; }
   const dateBadge = item.event_date
     ? '<div class="galeri-preview-date"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>' + esc(formatDate(item.event_date)) + '</div>'
     : '';
-
   const photosBadge = photoCount > 1
     ? '<div class="galeri-preview-photos"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>+' + (photoCount - 1) + '</div>'
     : '';
-
   const locationMeta = item.location
     ? '<div class="galeri-preview-loc"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>' + esc(item.location) + '</div>'
     : '<div class="galeri-preview-loc"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Kegiatan</div>';
-
   return '<article class="galeri-preview-card ' + (isFeatured ? 'featured' : '') + '" data-gid="' + item.id + '">' +
     '<div class="galeri-preview-cover">' +
       '<span class="galeri-preview-badge">' + esc(item.category) + '</span>' +
-      dateBadge +
-      photosBadge +
-      coverHTML +
+      dateBadge + photosBadge + coverHTML +
     '</div>' +
     '<div class="galeri-preview-body">' +
       '<h3 class="galeri-preview-title">' + esc(item.title) + '</h3>' +
       '<p class="galeri-preview-desc">' + esc(item.description || 'Klik untuk melihat detail kegiatan.') + '</p>' +
-      '<div class="galeri-preview-meta">' +
-        locationMeta +
+      '<div class="galeri-preview-meta">' + locationMeta +
         '<span class="galeri-preview-arrow">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>' +
       '</div>' +
     '</div>' +
@@ -828,43 +1059,24 @@ function renderGaleriCard(item, index){
 
 async function loadGalleryPreview(){
   const grid = document.getElementById('galeriPreview');
-  const section = document.getElementById('galeri-section');
   if(!grid) return;
-
   try {
     const SUPABASE_URL = window.APP_CONFIG.SUPABASE_URL;
     const SUPABASE_ANON_KEY = window.APP_CONFIG.SUPABASE_ANON_KEY;
-
-    const res = await fetch(
-      SUPABASE_URL + '/rest/v1/gallery?select=*&order=event_date.desc.nullslast,created_at.desc&limit=5',
-      {
-        headers: {
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-        }
-      }
-    );
-
+    const res = await fetch(SUPABASE_URL + '/rest/v1/gallery?select=*&order=event_date.desc.nullslast,created_at.desc&limit=5', {
+      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+    });
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const raw = await res.json();
-
     GALLERY = raw.map(g => ({
-      id: g.id,
-      title: g.title || '',
-      slug: g.slug || '',
-      category: g.category || 'Kegiatan',
-      description: g.description || '',
+      id: g.id, title: g.title || '', slug: g.slug || '',
+      category: g.category || 'Kegiatan', description: g.description || '',
       cover: g.cover || null,
       images: Array.isArray(g.images) ? g.images : (typeof g.images === 'string' ? safeParseJSON(g.images) : []),
-      event_date: g.event_date || '',
-      location: g.location || '',
-      author: g.author || ''
+      event_date: g.event_date || '', location: g.location || '', author: g.author || ''
     }));
-
     console.log('✅ Loaded', GALLERY.length, 'kegiatan (preview)');
-
     if(GALLERY.length === 0){
-      // Sembunyikan section galeri jika kosong
       const heading = document.getElementById('galeri-section');
       const btnWrap = grid.nextElementSibling;
       if(heading) heading.style.display = 'none';
@@ -872,9 +1084,7 @@ async function loadGalleryPreview(){
       if(btnWrap) btnWrap.style.display = 'none';
       return;
     }
-
     grid.innerHTML = GALLERY.map(renderGaleriCard).join('');
-
     grid.querySelectorAll('.galeri-preview-card').forEach(card => {
       card.addEventListener('click', () => {
         const id = parseInt(card.dataset.gid, 10);
@@ -883,7 +1093,6 @@ async function loadGalleryPreview(){
     });
   } catch(err) {
     console.error('❌ Gagal load gallery preview:', err);
-    // Sembunyikan section jika gagal
     const heading = document.getElementById('galeri-section');
     const btnWrap = grid.nextElementSibling;
     if(heading) heading.style.display = 'none';
@@ -892,34 +1101,22 @@ async function loadGalleryPreview(){
   }
 }
 
-// === Modal Detail Galeri (di index) ===
 const galeriModal = document.getElementById('galeriModal');
 const galeriModalContent = document.getElementById('galeriModalContent');
 
 function openGaleriDetail(id){
   const item = GALLERY.find(x => x.id === id);
   if(!item) return;
-
   const coverStyle = item.cover
     ? 'background-image:url(\'' + esc(item.cover).replace(/'/g, "%27") + '\')'
     : 'background:linear-gradient(135deg,#a5e3c2,#469d6f)';
-
   const extraImages = (item.images || []).filter(u => u && u !== item.cover);
   const hasExtraImages = extraImages.length > 0;
-
   const metaItems = [];
-  if(item.event_date){
-    metaItems.push('<div class="modal-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>' + esc(formatDate(item.event_date)) + '</div>');
-  }
-  if(item.location){
-    metaItems.push('<div class="modal-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>' + esc(item.location) + '</div>');
-  }
-  if(item.author){
-    metaItems.push('<div class="modal-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>' + esc(item.author) + '</div>');
-  }
-
+  if(item.event_date) metaItems.push('<div class="modal-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>' + esc(formatDate(item.event_date)) + '</div>');
+  if(item.location) metaItems.push('<div class="modal-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>' + esc(item.location) + '</div>');
+  if(item.author) metaItems.push('<div class="modal-meta-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>' + esc(item.author) + '</div>');
   const shareUrl = window.location.origin + window.location.pathname + '#galeri-' + (item.slug || item.id);
-
   galeriModalContent.innerHTML =
     '<div class="modal-cover" style="' + coverStyle + '">' +
       '<span class="modal-cover-badge">' + esc(item.category) + '</span>' +
@@ -939,27 +1136,19 @@ function openGaleriDetail(id){
       '<div class="modal-share">' +
         '<button class="modal-share-btn" id="galeriShareCopy"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>Salin Link</button>' +
         '<a class="modal-share-btn wa" id="galeriShareWA" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0zm5 0a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0z"/></svg>WhatsApp</a>' +
-        '<a href="galeri.html#' + esc(item.slug || item.id) + '" class="modal-share-btn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>Halaman Galeri</a>' +
       '</div>' +
     '</div>';
-
   galeriModalContent.querySelector('#galeriShareCopy').addEventListener('click', () => {
-    navigator.clipboard.writeText(shareUrl).then(() => {
-      showToast('Link kegiatan berhasil disalin!');
-    }).catch(() => showToast('Gagal menyalin link.'));
+    navigator.clipboard.writeText(shareUrl).then(() => showToast('Link kegiatan berhasil disalin!')).catch(() => showToast('Gagal menyalin link.', 'error'));
   });
-
   const waBtn = galeriModalContent.querySelector('#galeriShareWA');
-  const waText = encodeURIComponent(item.title + '\n\n' + shareUrl);
-  waBtn.href = 'https://wa.me/?text=' + waText;
-
+  waBtn.href = 'https://wa.me/?text=' + encodeURIComponent(item.title + '\n\n' + shareUrl);
   galeriModalContent.querySelectorAll('.modal-gallery-item').forEach(el => {
     el.addEventListener('click', () => {
       const idx = parseInt(el.dataset.imgIndex, 10);
       openLightbox(extraImages, idx);
     });
   });
-
   galeriModal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -969,7 +1158,273 @@ function closeGaleriDetail(){
   document.body.style.overflow = '';
 }
 
-// === Lightbox ===
+// ==================== ULASAN PENGUNJUNG ====================
+let REVIEWS = [];
+let activeRatingFilter = 'Semua';
+let activeRoleFilter = 'Semua';
+let visibleUlasanCount = 3;
+const ULASAN_BATCH = 3;
+
+const ulasanGrid = document.getElementById('ulasanGrid');
+const ratingBigNum = document.getElementById('ratingBigNum');
+const ratingBigStars = document.getElementById('ratingBigStars');
+const ratingBigCount = document.getElementById('ratingBigCount');
+const ratingDistribution = document.getElementById('ratingDistribution');
+const loadMoreUlasanWrap = document.getElementById('loadMoreUlasanWrap');
+const loadMoreUlasanBtn = document.getElementById('loadMoreUlasanBtn');
+
+async function loadReviews(){
+  try {
+    const SUPABASE_URL = window.APP_CONFIG.SUPABASE_URL;
+    const SUPABASE_ANON_KEY = window.APP_CONFIG.SUPABASE_ANON_KEY;
+    const res = await fetch(SUPABASE_URL + '/rest/v1/reviews?select=*&order=created_at.desc&limit=500', {
+      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+    });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const raw = await res.json();
+    REVIEWS = raw.map(r => ({
+      id: r.id,
+      name: r.name || 'Anonim',
+      role: r.role || 'Umum',
+      rating: parseInt(r.rating, 10) || 0,
+      message: r.message || '',
+      suggestion_type: r.suggestion_type || '',
+      suggestion: r.suggestion || '',
+      created_at: r.created_at || ''
+    }));
+    console.log('✅ Loaded', REVIEWS.length, 'ulasan');
+    renderFilterPills();
+    renderRatingSummary();
+    renderUlasan();
+  } catch(err) {
+    console.error('❌ Gagal load reviews:', err);
+    ulasanGrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><h3>Belum bisa memuat ulasan</h3><p>Coba refresh halaman beberapa saat lagi.</p></div>';
+  }
+}
+
+function renderFilterPills(){
+  const ratingGroup = document.getElementById('filterRatingGroup');
+  const roleGroup = document.getElementById('filterRoleGroup');
+  const ratings = ['Semua', 5, 4, 3, 2, 1];
+  ratingGroup.innerHTML = '<span class="filter-group-label">Rating</span>' + ratings.map(r =>
+    '<button class="filter-pill ' + (r === 'Semua' ? 'active' : '') + '" data-rating="' + r + '">' +
+    (r === 'Semua' ? 'Semua' : r + ' <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg>') +
+    '</button>'
+  ).join('');
+
+  const roles = ['Semua', 'Siswa/Siswi', 'Guru', 'Alumni', 'Umum'];
+  roleGroup.innerHTML = '<span class="filter-group-label">Peran</span>' + roles.map(r =>
+    '<button class="filter-pill ' + (r === 'Semua' ? 'active' : '') + '" data-role="' + esc(r) + '">' + esc(r) + '</button>'
+  ).join('');
+
+  ratingGroup.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeRatingFilter = btn.dataset.rating === 'Semua' ? 'Semua' : parseInt(btn.dataset.rating, 10);
+      ratingGroup.querySelectorAll('.filter-pill').forEach(b =>
+        b.classList.toggle('active', String(b.dataset.rating) === String(activeRatingFilter))
+      );
+      renderUlasan(true);
+    });
+  });
+  roleGroup.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeRoleFilter = btn.dataset.role;
+      roleGroup.querySelectorAll('.filter-pill').forEach(b =>
+        b.classList.toggle('active', b.dataset.role === activeRoleFilter)
+      );
+      renderUlasan(true);
+    });
+  });
+}
+
+function renderRatingSummary(){
+  if(REVIEWS.length === 0){
+    ratingBigNum.innerHTML = '—<small>/5</small>';
+    ratingBigStars.innerHTML = '';
+    ratingBigCount.textContent = 'Belum ada ulasan';
+    ratingDistribution.innerHTML = [5,4,3,2,1].map(s =>
+      '<div class="rating-dist-row"><div class="rating-dist-label">' + s + ' <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></div><div class="rating-dist-bar"><div class="rating-dist-fill" style="width:0"></div></div><div class="rating-dist-count">0</div></div>'
+    ).join('');
+    return;
+  }
+  const total = REVIEWS.length;
+  const sum = REVIEWS.reduce((a, r) => a + r.rating, 0);
+  const avg = (sum / total).toFixed(1);
+  ratingBigNum.innerHTML = avg + '<small>/5</small>';
+  ratingBigStars.innerHTML = renderStars(Math.round(parseFloat(avg)), 20);
+  ratingBigCount.textContent = 'dari ' + total + ' ulasan';
+
+  const dist = {5:0,4:0,3:0,2:0,1:0};
+  REVIEWS.forEach(r => { if(dist[r.rating] !== undefined) dist[r.rating]++; });
+  ratingDistribution.innerHTML = [5,4,3,2,1].map(s => {
+    const pct = total > 0 ? (dist[s] / total * 100) : 0;
+    return '<div class="rating-dist-row"><div class="rating-dist-label">' + s + ' <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15.09 8.26 22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01z"/></svg></div><div class="rating-dist-bar"><div class="rating-dist-fill" style="width:' + pct + '%"></div></div><div class="rating-dist-count">' + dist[s] + '</div></div>';
+  }).join('');
+}
+
+function renderUlasan(resetPage){
+  if(resetPage !== false) visibleUlasanCount = ULASAN_BATCH;
+
+  const filtered = REVIEWS.filter(r => {
+    if(activeRatingFilter !== 'Semua' && r.rating !== activeRatingFilter) return false;
+    if(activeRoleFilter !== 'Semua' && r.role !== activeRoleFilter) return false;
+    return true;
+  });
+
+  if(filtered.length === 0){
+    ulasanGrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-state-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>' + (REVIEWS.length === 0 ? 'Belum ada ulasan' : 'Tidak ada ulasan yang cocok') + '</h3><p>' + (REVIEWS.length === 0 ? 'Jadilah yang pertama memberikan ulasan untuk Perpustakaan At-Taklim!' : 'Coba ubah filter rating atau peran.') + '</p><button class="btn btn-gold" id="emptyTulisBtn" type="button">Tulis Ulasan Pertama</button></div>';
+    loadMoreUlasanWrap.style.display = 'none';
+    const emptyBtn = document.getElementById('emptyTulisBtn');
+    if(emptyBtn) emptyBtn.addEventListener('click', () => openUlasanModal());
+    return;
+  }
+
+  const shown = filtered.slice(0, visibleUlasanCount);
+  ulasanGrid.innerHTML = shown.map(renderUlasanCard).join('');
+
+  if(visibleUlasanCount < filtered.length){
+    loadMoreUlasanWrap.style.display = 'block';
+    const remaining = filtered.length - visibleUlasanCount;
+    const nextBatch = Math.min(ULASAN_BATCH, remaining);
+    loadMoreUlasanBtn.innerHTML = 'Muat ' + nextBatch + ' Ulasan Lagi (' + remaining + ' tersisa) <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>';
+  } else {
+    loadMoreUlasanWrap.style.display = 'none';
+  }
+}
+
+function renderUlasanCard(r){
+  const avatarStyle = getAvatarColor(r.name);
+  const initial = getInitial(r.name);
+  const suggestionBlock = (r.suggestion_type && r.suggestion)
+    ? '<div class="ulasan-suggestion"><div class="ulasan-suggestion-head"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Saran: ' + esc(r.suggestion_type) + '</div><div class="ulasan-suggestion-text">' + esc(r.suggestion) + '</div></div>'
+    : '';
+  return '<article class="ulasan-card">' +
+    '<div class="ulasan-head">' +
+      '<div class="ulasan-avatar" style="background:' + avatarStyle + '">' + esc(initial) + '</div>' +
+      '<div class="ulasan-user">' +
+        '<div class="ulasan-name">' + esc(r.name) + '</div>' +
+        '<div class="ulasan-role">' + esc(r.role) + '</div>' +
+      '</div>' +
+      '<div class="ulasan-date">' + esc(formatDate(r.created_at)) + '</div>' +
+    '</div>' +
+    '<div class="ulasan-stars">' + renderStars(r.rating, 16) + '</div>' +
+    '<div class="ulasan-message">' + esc(r.message) + '</div>' +
+    suggestionBlock +
+  '</article>';
+}
+
+loadMoreUlasanBtn.addEventListener('click', () => {
+  visibleUlasanCount += ULASAN_BATCH;
+  renderUlasan(false);
+});
+
+// === Modal Tulis Ulasan ===
+const ulasanModal = document.getElementById('ulasanModal');
+const ulasanForm = document.getElementById('ulasanForm');
+const suggestionToggle = document.getElementById('suggestionToggle');
+const suggestionFields = document.getElementById('suggestionFields');
+const ulasanError = document.getElementById('ulasanError');
+
+function openUlasanModal(){
+  ulasanForm.reset();
+  suggestionFields.classList.remove('show');
+  ulasanError.classList.remove('show');
+  ulasanError.textContent = '';
+  ulasanModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('ulasanNama').focus(), 200);
+}
+function closeUlasanModal(){
+  ulasanModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('btnTulisUlasan').addEventListener('click', openUlasanModal);
+
+suggestionToggle.addEventListener('change', () => {
+  suggestionFields.classList.toggle('show', suggestionToggle.checked);
+});
+
+ulasanForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  ulasanError.classList.remove('show');
+  const nama = document.getElementById('ulasanNama').value.trim();
+  const role = document.getElementById('ulasanRole').value;
+  const ratingEl = document.querySelector('input[name="rating"]:checked');
+  const rating = ratingEl ? parseInt(ratingEl.value, 10) : 0;
+  const message = document.getElementById('ulasanMessage').value.trim();
+  const hasSuggestion = suggestionToggle.checked;
+  const suggestionType = hasSuggestion ? document.getElementById('suggestionType').value : null;
+  const suggestionText = hasSuggestion ? document.getElementById('suggestionText').value.trim() : null;
+
+  if(!nama || !role || !rating || !message){
+    ulasanError.textContent = 'Mohon lengkapi semua kolom yang wajib diisi.';
+    ulasanError.classList.add('show');
+    return;
+  }
+  if(hasSuggestion && !suggestionText){
+    ulasanError.textContent = 'Mohon isi detail saran Anda, atau hilangkan centang saran.';
+    ulasanError.classList.add('show');
+    return;
+  }
+
+  const submitBtn = document.getElementById('submitUlasanBtn');
+  const originalBtnHTML = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Mengirim...';
+
+  try {
+    const SUPABASE_URL = window.APP_CONFIG.SUPABASE_URL;
+    const SUPABASE_ANON_KEY = window.APP_CONFIG.SUPABASE_ANON_KEY;
+    const payload = {
+      name: nama,
+      role: role,
+      rating: rating,
+      message: message,
+      suggestion_type: suggestionType,
+      suggestion: suggestionText
+    };
+    const res = await fetch(SUPABASE_URL + '/rest/v1/reviews', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation'
+      },
+      body: JSON.stringify(payload)
+    });
+    if(!res.ok){
+      const errText = await res.text();
+      throw new Error('HTTP ' + res.status + ' - ' + errText);
+    }
+    const inserted = await res.json();
+    console.log('✅ Ulasan terkirim:', inserted);
+
+    // Tambah ke list lokal (langsung tampil tanpa refresh)
+    const newReview = {
+      id: inserted[0]?.id || Date.now(),
+      name: nama, role: role, rating: rating, message: message,
+      suggestion_type: suggestionType || '', suggestion: suggestionText || '',
+      created_at: new Date().toISOString()
+    };
+    REVIEWS.unshift(newReview);
+    renderRatingSummary();
+    renderUlasan(true);
+
+    closeUlasanModal();
+    showToast('Terima kasih! Ulasanmu sudah terkirim. 🌟');
+  } catch(err) {
+    console.error('❌ Gagal kirim ulasan:', err);
+    ulasanError.textContent = 'Gagal mengirim ulasan. Periksa koneksi internet lalu coba lagi.';
+    ulasanError.classList.add('show');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnHTML;
+  }
+});
+
+// ==================== LIGHTBOX ====================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxCounter = document.getElementById('lightboxCounter');
@@ -977,9 +1432,7 @@ let lbImages = [];
 let lbIndex = 0;
 
 function openLightbox(images, idx){
-  lbImages = images;
-  lbIndex = idx;
-  updateLightbox();
+  lbImages = images; lbIndex = idx; updateLightbox();
   lightbox.classList.add('active');
 }
 function updateLightbox(){
@@ -987,20 +1440,9 @@ function updateLightbox(){
   lightboxImg.src = lbImages[lbIndex];
   lightboxCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
 }
-function closeLightbox(){
-  lightbox.classList.remove('active');
-  lbImages = [];
-}
-function lbPrev(){
-  if(!lbImages.length) return;
-  lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
-  updateLightbox();
-}
-function lbNext(){
-  if(!lbImages.length) return;
-  lbIndex = (lbIndex + 1) % lbImages.length;
-  updateLightbox();
-}
+function closeLightbox(){ lightbox.classList.remove('active'); lbImages = []; }
+function lbPrev(){ if(!lbImages.length) return; lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
+function lbNext(){ if(!lbImages.length) return; lbIndex = (lbIndex + 1) % lbImages.length; updateLightbox(); }
 
 document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
 document.getElementById('lightboxPrev').addEventListener('click', lbPrev);
@@ -1016,17 +1458,12 @@ document.getElementById('ipOpenBtn').addEventListener('click', () => {
   if(!s){ ipInput.focus(); return; }
   s = s.replace(/^https?:\/\//i,'').replace(/\/+$/,'').replace(/\/(slims|opac).*$/i,'');
   let url = 'http://' + s + '/opac';
-  if(pendingOpacTitle){
-    url = 'http://' + s + '/opac/index.php?p=search&keywords=' + encodeURIComponent(pendingOpacTitle);
-  }
+  if(pendingOpacTitle){ url = 'http://' + s + '/opac/index.php?p=search&keywords=' + encodeURIComponent(pendingOpacTitle); }
   window.open(url, '_blank', 'noopener,noreferrer');
   ipModal.classList.remove('active');
   ipInput.value = '';
 });
-
-ipInput.addEventListener('keydown', e => {
-  if(e.key === 'Enter') document.getElementById('ipOpenBtn').click();
-});
+ipInput.addEventListener('keydown', e => { if(e.key === 'Enter') document.getElementById('ipOpenBtn').click(); });
 
 document.querySelectorAll('.js-open-slims').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1044,6 +1481,7 @@ document.addEventListener('click', e => {
   }
   if(e.target.closest('[data-close-detail]')) detailModal.classList.remove('active');
   if(e.target.closest('[data-close-galeri]')) closeGaleriDetail();
+  if(e.target.closest('[data-close-ulasan]')) closeUlasanModal();
   if(e.target.closest('[data-close-ip]')) ipModal.classList.remove('active');
   if(e.target.classList.contains('modal-overlay') && !e.target.closest('.modal')) e.target.classList.remove('active');
 });
@@ -1053,6 +1491,7 @@ document.addEventListener('keydown', e => {
     if(lightbox.classList.contains('active')) closeLightbox();
     else if(galeriModal.classList.contains('active')) closeGaleriDetail();
     else if(detailModal.classList.contains('active')) detailModal.classList.remove('active');
+    else if(ulasanModal.classList.contains('active')) closeUlasanModal();
     else if(ipModal.classList.contains('active')) ipModal.classList.remove('active');
   }
   if(lightbox.classList.contains('active')){
@@ -1075,6 +1514,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 loadBooks();
 loadGalleryPreview();
+loadReviews();
 </script>
+<style>
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+</style>
 </body>
 </html>
