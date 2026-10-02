@@ -1,1 +1,17 @@
 .vercel
+.env
+.env.local
+.env*.local
+images/covers/
+import-books.js
+upload-covers.js
+import-errors.log
+upload-covers-errors.log
+kompres_cover.py
+konversi_excel.py
+install_library.bat
+jalankan_konversi.bat
+list_cover.txt
+books.json
+senayan_biblio_export.csv
+Daftar Koleksi Perpustakaan At-Taklim 2026.xlsx
