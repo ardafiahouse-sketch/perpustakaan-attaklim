@@ -80,54 +80,54 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .search-form select{padding:15px 16px;border:1.5px solid var(--p200);border-radius:14px;font-size:14.5px;font-family:inherit;background:var(--p50);cursor:pointer;outline:none;appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23387d59' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px}
 .search-form .btn-gold{width:100%;padding:15px;font-size:15px}
 
-/* ============ SECTION STRUKTUR ORGANISASI ============ */
-.org-section{padding:90px 0;background:linear-gradient(to bottom,var(--w) 0%,var(--p50) 100%);position:relative;overflow:hidden}
+/* ============ SECTION STRUKTUR ORGANISASI (GRID CARD) ============ */
+.org-section{padding:90px 0;background:linear-gradient(to bottom,var(--w) 0%,var(--p50) 100%)}
 .section-heading{text-align:center;margin-bottom:56px}
 .section-heading .eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g600);margin-bottom:12px}
 .section-heading h2{font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--p800)}
 .section-heading .line{width:60px;height:3px;background:var(--g500);margin:18px auto 0;border-radius:2px}
 
-/* Org Chart layout */
-.org-chart{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;z-index:2}
-.org-level{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;position:relative;z-index:2}
-.org-level-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;width:100%;max-width:1100px;margin-top:0}
+/* Sub-section per level */
+.org-group{margin-bottom:56px}
+.org-group:last-child{margin-bottom:0}
+.org-group-heading{text-align:center;margin-bottom:32px}
+.org-group-heading .org-group-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:14px}
+.org-group-heading .org-group-eyebrow.lvl-1{background:#fef3c7;color:#92400e}
+.org-group-heading .org-group-eyebrow.lvl-2{background:var(--pink100);color:var(--pink600)}
+.org-group-heading .org-group-eyebrow.lvl-3{background:var(--p100);color:var(--p800)}
+.org-group-heading h3{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--p900);font-weight:700}
+.org-group-heading .org-group-line{width:40px;height:2px;background:var(--g500);margin:12px auto 0;border-radius:2px;opacity:.5}
 
-/* Connector line emas */
-.org-connector{width:2px;background:linear-gradient(to bottom,var(--g400),var(--g500));position:relative;z-index:1}
-.org-connector-sm{height:36px}
-.org-connector-md{height:48px}
+/* Grid untuk kartu */
+.org-grid{display:grid;gap:24px}
+.org-grid-lvl-1{grid-template-columns:repeat(2,1fr);max-width:800px;margin:0 auto}
+.org-grid-lvl-2{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+.org-grid-lvl-3{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));max-width:1100px;margin:0 auto}
 
 /* Kartu staff */
-.org-card{background:var(--w);border:1px solid var(--p100);border-radius:20px;padding:24px 22px 20px;text-align:center;transition:.35s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-width:220px;max-width:260px;box-shadow:0 4px 12px rgba(46,99,71,.05)}
-.org-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(46,99,71,.15);border-color:var(--p300)}
-.org-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to right,var(--p400),var(--g500))}
+.org-card{background:var(--w);border:1px solid var(--p100);border-radius:22px;padding:28px 24px 22px;text-align:center;transition:.4s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;align-items:center;box-shadow:0 4px 16px rgba(46,99,71,.06)}
+.org-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(46,99,71,.18);border-color:var(--p300)}
+.org-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transition:height .3s}
 .org-card.level-1::before{background:linear-gradient(to right,var(--g400),var(--g600))}
-.org-card.level-2::before{background:linear-gradient(to right,var(--p400),var(--p600))}
-.org-card.level-3::before{background:linear-gradient(to right,var(--gr300),var(--gr400))}
+.org-card.level-2::before{background:linear-gradient(to right,var(--pink400),var(--pink600))}
+.org-card.level-3::before{background:linear-gradient(to right,var(--p400),var(--p600))}
+.org-card:hover::before{height:6px}
 
-.org-photo{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--p400),var(--p600));background-size:cover;background-position:center;margin-bottom:16px;flex-shrink:0;border:3px solid var(--w);box-shadow:0 8px 20px rgba(46,99,71,.15);position:relative;overflow:hidden}
-.org-card.level-1 .org-photo{border-color:var(--g400);box-shadow:0 8px 20px rgba(212,175,55,.3)}
-.org-card.level-2 .org-photo{border-color:var(--p300);box-shadow:0 8px 20px rgba(70,157,111,.25)}
+.org-photo{width:104px;height:104px;border-radius:50%;background:linear-gradient(135deg,var(--p400),var(--p600));background-size:cover;background-position:center;margin-bottom:18px;flex-shrink:0;border:4px solid var(--w);box-shadow:0 10px 24px rgba(46,99,71,.15);position:relative;overflow:hidden;transition:.3s}
+.org-card:hover .org-photo{transform:scale(1.05)}
+.org-card.level-1 .org-photo{border-color:var(--g400);box-shadow:0 10px 24px rgba(212,175,55,.3)}
+.org-card.level-2 .org-photo{border-color:var(--pink300);box-shadow:0 10px 24px rgba(244,114,182,.25)}
+.org-card.level-3 .org-photo{border-color:var(--p300);box-shadow:0 10px 24px rgba(70,157,111,.2)}
 .org-photo-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9)}
 
-.org-role-badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:10px}
-.org-card.level-1 .org-role-badge{background:#fef3c7;color:#92400e}
-.org-card.level-2 .org-role-badge{background:var(--pink100);color:var(--pink600)}
-.org-card.level-3 .org-role-badge{background:var(--gr100);color:var(--gr600)}
-
-.org-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--p900);line-height:1.3;margin-bottom:6px;word-break:break-word}
-.org-card.level-1 .org-name{font-size:1.15rem}
+.org-name{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;color:var(--p900);line-height:1.3;margin-bottom:6px;word-break:break-word}
+.org-card.level-1 .org-name{font-size:1.18rem}
 .org-position{font-size:12.5px;color:var(--gr500);font-weight:500;line-height:1.5;margin-bottom:10px}
-.org-tupoksi{font-size:12px;color:var(--gr500);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px}
-.org-detail-hint{margin-top:12px;font-size:11px;color:var(--g600);font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px;transition:.2s}
+.org-tupoksi{font-size:12px;color:var(--gr500);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;min-height:36px}
+.org-detail-hint{margin-top:14px;font-size:11px;color:var(--g600);font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px;transition:.2s}
 .org-card:hover .org-detail-hint{color:var(--g500);gap:7px}
 
-/* Empty/loading state */
-.org-empty{text-align:center;padding:60px 20px;color:var(--gr500);width:100%}
-.org-empty h3{font-size:1.2rem;color:var(--p800);margin-bottom:8px;font-family:'Playfair Display',serif}
-.org-empty p{font-size:14px;max-width:420px;margin:0 auto}
-
-.org-skeleton{background:linear-gradient(90deg,var(--p50) 25%,var(--p100) 50%,var(--p50) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:20px;height:280px;width:230px}
+.org-skeleton{background:linear-gradient(90deg,var(--p50) 25%,var(--p100) 50%,var(--p50) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:22px;height:300px}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* ============ SECTION GALERI PREVIEW ============ */
@@ -275,16 +275,11 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .modal-share-btn.wa{border-color:#25D366;color:#25D366}
 .modal-share-btn.wa:hover{background:rgba(37,211,102,.08)}
 
-/* === MODAL DETAIL STAFF === */
 .staff-detail-header{padding:36px 36px 24px;background:linear-gradient(135deg,var(--p50),var(--p100));text-align:center;position:relative;overflow:hidden}
 .staff-detail-header::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(212,175,55,.12)}
 .staff-detail-header.level-1{background:linear-gradient(135deg,#fef3c7,var(--p100))}
 .staff-detail-header.level-2{background:linear-gradient(135deg,var(--pink50),var(--p100))}
 .staff-detail-photo{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--p400),var(--p600));background-size:cover;background-position:center;margin:0 auto 18px;border:4px solid var(--w);box-shadow:0 12px 30px rgba(46,99,71,.25);position:relative;z-index:1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);overflow:hidden}
-.staff-detail-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:14px;position:relative;z-index:1}
-.staff-detail-badge.level-1{background:#fef3c7;color:#92400e}
-.staff-detail-badge.level-2{background:var(--pink100);color:var(--pink600)}
-.staff-detail-badge.level-3{background:var(--gr100);color:var(--gr600)}
 .staff-detail-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--p900);line-height:1.25;margin-bottom:8px;position:relative;z-index:1}
 .staff-detail-position{font-size:14.5px;color:var(--p700);font-weight:600;position:relative;z-index:1}
 .staff-detail-body{padding:28px 36px 36px}
@@ -298,7 +293,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .staff-detail-contact a:hover{background:var(--w);border-color:var(--p400);transform:translateX(3px)}
 .staff-detail-contact svg{color:var(--p600);flex-shrink:0}
 
-/* === LIGHTBOX === */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:none;align-items:center;justify-content:center;padding:40px 20px;animation:fadeIn .3s ease}
 .lightbox.active{display:flex}
 .lightbox img{max-width:100%;max-height:calc(100vh - 100px);object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
@@ -331,7 +325,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .footer-list.with-icon svg{flex-shrink:0;margin-top:3px}
 .footer-bottom{border-top:1px solid var(--p700);padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.6)}
 
-/* ============ RESPONSIVE ============ */
 @media(max-width:1024px){
   .galeri-preview-grid{grid-template-columns:repeat(3,1fr)}
   .galeri-preview-card.featured{grid-column:span 3;grid-row:span 1}
@@ -346,10 +339,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .rating-big{border-right:none;border-bottom:1px solid var(--p100);padding-right:0;padding-bottom:24px}
   .rating-cta{margin-top:4px}
   .rating-cta-text{max-width:100%}
-
-  .org-level{gap:16px}
-  .org-level-3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
-  .org-card{min-width:200px;max-width:100%}
+  .org-grid-lvl-3{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
 
   .nav-toggle{display:inline-flex}
   .nav-links{
@@ -386,11 +376,9 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .rating-big-num{font-size:3rem}
   .filter-group-label{width:100%;margin-bottom:2px}
 
-  .org-level{flex-direction:column;gap:20px;width:100%;align-items:center}
-  .org-level-3{grid-template-columns:1fr;gap:20px}
-  .org-connector-sm,.org-connector-md{height:28px}
-  .org-card{width:100%;max-width:340px}
-  .org-photo{width:84px;height:84px}
+  .org-grid-lvl-1{grid-template-columns:1fr;max-width:340px}
+  .org-grid-lvl-3{grid-template-columns:1fr;max-width:340px}
+  .org-photo{width:88px;height:88px}
   .staff-detail-header{padding:28px 22px 20px}
   .staff-detail-body{padding:22px 22px 28px}
   .staff-detail-name{font-size:1.3rem}
@@ -415,7 +403,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .ulasan-card{padding:20px 20px 18px}
 }
 
-/* Detail Buku Modal (untuk modal buku) */
 .detail-header{display:flex;gap:20px;padding:30px;background:linear-gradient(135deg,var(--p50),var(--p100));border-radius:20px 20px 0 0}
 .detail-cover{width:120px;height:170px;border-radius:12px;flex-shrink:0;background-size:cover;background-position:center;box-shadow:0 8px 20px rgba(46,99,71,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);overflow:hidden}
 .detail-cover img{width:100%;height:100%;object-fit:cover}
@@ -432,7 +419,6 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .detail-row .value{color:var(--gr800);flex:1;word-break:break-word}
 .btn-opac{margin-top:20px;width:100%;justify-content:center}
 
-/* Form Modal Ulasan */
 .form-header{padding:32px 36px 24px;background:linear-gradient(135deg,var(--p50),var(--p100));border-radius:24px 24px 0 0;position:relative;overflow:hidden}
 .form-header::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:rgba(212,175,55,.15)}
 .form-header-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--p500),var(--p700));display:flex;align-items:center;justify-content:center;color:var(--w);margin-bottom:16px;box-shadow:0 8px 20px rgba(70,157,111,.3);position:relative;z-index:2}
@@ -553,7 +539,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   </div>
 </section>
 
-<!-- ============ SECTION STRUKTUR ORGANISASI ============ -->
+<!-- ============ SECTION STRUKTUR ORGANISASI (GRID CARD) ============ -->
 <section class="org-section" id="struktur">
   <div class="container">
     <div class="section-heading">
@@ -562,20 +548,35 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
       <div class="line"></div>
     </div>
 
-    <div class="org-chart" id="orgChart">
-      <div class="org-level" id="orgLevel1" style="justify-content:center">
-        <div class="org-skeleton"></div>
-        <div class="org-skeleton"></div>
+    <div id="orgContainer">
+      <div class="org-group" id="orgGroup1" style="display:none">
+        <div class="org-group-heading">
+          <span class="org-group-eyebrow lvl-1">Pimpinan Madrasah</span>
+        </div>
+        <div class="org-grid org-grid-lvl-1" id="orgGrid1"></div>
       </div>
-      <div class="org-connector org-connector-sm"></div>
-      <div class="org-level" id="orgLevel2">
-        <div class="org-skeleton"></div>
+
+      <div class="org-group" id="orgGroup2" style="display:none">
+        <div class="org-group-heading">
+          <span class="org-group-eyebrow lvl-2">Pimpinan Unit</span>
+        </div>
+        <div class="org-grid org-grid-lvl-2" id="orgGrid2"></div>
       </div>
-      <div class="org-connector org-connector-md"></div>
-      <div class="org-level-3" id="orgLevel3">
-        <div class="org-skeleton"></div>
-        <div class="org-skeleton"></div>
-        <div class="org-skeleton"></div>
+
+      <div class="org-group" id="orgGroup3" style="display:none">
+        <div class="org-group-heading">
+          <span class="org-group-eyebrow lvl-3">Tim Staff</span>
+        </div>
+        <div class="org-grid org-grid-lvl-3" id="orgGrid3"></div>
+      </div>
+
+      <div id="orgLoading" style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
+        <div class="org-skeleton" style="width:280px"></div>
+        <div class="org-skeleton" style="width:280px"></div>
+      </div>
+
+      <div id="orgEmpty" style="display:none;text-align:center;padding:60px 20px;color:var(--gr500)">
+        <p>Belum ada data struktur organisasi. Tambahkan dari halaman admin.</p>
       </div>
     </div>
   </div>
@@ -921,14 +922,19 @@ function renderStars(rating, size){
   return html;
 }
 
-// ==================== STAFF / STRUKTUR ORGANISASI ====================
+// ==================== STAFF / STRUKTUR ORGANISASI (GRID CARD) ====================
 let STAFF = [];
 
 async function loadStaff(){
-  const level1El = document.getElementById('orgLevel1');
-  const level2El = document.getElementById('orgLevel2');
-  const level3El = document.getElementById('orgLevel3');
-  if(!level1El) return;
+  const loadingEl = document.getElementById('orgLoading');
+  const emptyEl = document.getElementById('orgEmpty');
+  const group1 = document.getElementById('orgGroup1');
+  const group2 = document.getElementById('orgGroup2');
+  const group3 = document.getElementById('orgGroup3');
+  const grid1 = document.getElementById('orgGrid1');
+  const grid2 = document.getElementById('orgGrid2');
+  const grid3 = document.getElementById('orgGrid3');
+  if(!grid1) return;
 
   try {
     const SUPABASE_URL = window.APP_CONFIG.SUPABASE_URL;
@@ -940,29 +946,39 @@ async function loadStaff(){
     STAFF = await res.json();
     console.log('✅ Loaded', STAFF.length, 'staff');
 
+    loadingEl.style.display = 'none';
+
     const level1 = STAFF.filter(s => s.level === 1);
     const level2 = STAFF.filter(s => s.level === 2);
     const level3 = STAFF.filter(s => s.level === 3);
 
     // Level 1
-    if(level1.length === 0){
-      level1El.innerHTML = '<div class="org-empty"><p>Belum ada pimpinan madrasah</p></div>';
+    if(level1.length > 0){
+      group1.style.display = 'block';
+      grid1.innerHTML = level1.map(s => renderOrgCard(s)).join('');
     } else {
-      level1El.innerHTML = level1.map(s => renderOrgCard(s)).join('');
+      group1.style.display = 'none';
     }
 
     // Level 2
-    if(level2.length === 0){
-      level2El.innerHTML = '<div class="org-empty"><p>Belum ada pimpinan unit</p></div>';
+    if(level2.length > 0){
+      group2.style.display = 'block';
+      grid2.innerHTML = level2.map(s => renderOrgCard(s)).join('');
     } else {
-      level2El.innerHTML = level2.map(s => renderOrgCard(s)).join('');
+      group2.style.display = 'none';
     }
 
     // Level 3
-    if(level3.length === 0){
-      level3El.innerHTML = '<div class="org-empty" style="grid-column:1/-1"><p>Belum ada anggota staff. Tambahkan dari halaman admin.</p></div>';
+    if(level3.length > 0){
+      group3.style.display = 'block';
+      grid3.innerHTML = level3.map(s => renderOrgCard(s)).join('');
     } else {
-      level3El.innerHTML = level3.map(s => renderOrgCard(s)).join('');
+      group3.style.display = 'none';
+    }
+
+    // Kalau semua kosong
+    if(level1.length === 0 && level2.length === 0 && level3.length === 0){
+      emptyEl.style.display = 'block';
     }
 
     // Attach click handler
@@ -975,24 +991,22 @@ async function loadStaff(){
 
   } catch(err) {
     console.error('❌ Gagal load staff:', err);
-    level1El.innerHTML = '<div class="org-empty"><p>Gagal memuat data struktur organisasi.</p></div>';
-    level2El.innerHTML = '';
-    level3El.innerHTML = '';
+    loadingEl.style.display = 'none';
+    emptyEl.style.display = 'block';
+    emptyEl.innerHTML = '<p>Gagal memuat data struktur organisasi.</p>';
   }
 }
 
 function renderOrgCard(s){
-  const initials = getInitial(s.name);
   const photoStyle = s.photo
     ? 'background-image:url(\'' + esc(s.photo) + '\');background-size:cover;background-position:center'
     : 'background:' + getAvatarColor(s.name);
   const photoContent = s.photo
     ? ''
-    : '<div class="org-photo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>';
+    : '<div class="org-photo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>';
 
   return '<article class="org-card level-' + s.level + '" data-staff-id="' + s.id + '">' +
     '<div class="org-photo" style="' + photoStyle + '">' + photoContent + '</div>' +
-    '<span class="org-role-badge">Level ' + s.level + '</span>' +
     '<h3 class="org-name">' + esc(s.name) + '</h3>' +
     '<p class="org-position">' + esc(s.position) + '</p>' +
     (s.tupoksi ? '<p class="org-tupoksi">' + esc(s.tupoksi) + '</p>' : '') +
@@ -1015,12 +1029,9 @@ function openStaffDetail(id){
     ? ''
     : '<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
 
-  const levelLabel = s.level === 1 ? 'Pimpinan Madrasah' : s.level === 2 ? 'Pimpinan Unit' : 'Staff';
-
   staffModalContent.innerHTML =
     '<div class="staff-detail-header level-' + s.level + '">' +
       '<div class="staff-detail-photo" style="' + photoStyle + '">' + photoContent + '</div>' +
-      '<div class="staff-detail-badge level-' + s.level + '">' + levelLabel + '</div>' +
       '<h2 class="staff-detail-name">' + esc(s.name) + '</h2>' +
       '<p class="staff-detail-position">' + esc(s.position) + '</p>' +
     '</div>' +
@@ -1642,7 +1653,6 @@ window.addEventListener('scroll', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Load semua data
 loadStaff();
 loadBooks();
 loadGalleryPreview();
