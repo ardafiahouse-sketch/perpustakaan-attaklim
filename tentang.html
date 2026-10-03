@@ -19,6 +19,8 @@ body.fade-out{opacity:0}
   --p500:#5bbf8a;--p600:#469d6f;--p700:#387d59;--p800:#2e6347;--p900:#27513b;
   --g400:#e6c76a;--g500:#d4af37;--g600:#b8942c;
   --e500:#10b981;--e600:#059669;
+  --pink50:#fdf2f8;--pink100:#fce7f3;--pink200:#fbcfe8;--pink300:#f9a8d4;
+  --pink400:#f472b6;--pink500:#ec4899;--pink600:#db2777;
   --gr500:#6b7280;--gr600:#4b5563;--gr700:#374151;--gr800:#1f2937;
   --w:#fff;
 }
@@ -88,6 +90,47 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .vm-card ul li{font-size:14px;color:var(--gr600);line-height:1.75;padding-left:26px;position:relative;margin-bottom:12px}
 .vm-card ul li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--g500)}
 
+/* ============ STRUKTUR ORGANISASI (GRID CARD) ============ */
+.org-section{padding:80px 0;background:linear-gradient(to bottom,var(--w) 0%,var(--p50) 100%)}
+
+.org-group{margin-bottom:36px}
+.org-group:last-child{margin-bottom:0}
+.org-group-heading{text-align:center;margin-bottom:20px}
+.org-group-heading .org-group-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px}
+.org-group-heading .org-group-eyebrow.lvl-1{background:#fef3c7;color:#92400e}
+.org-group-heading .org-group-eyebrow.lvl-2{background:var(--pink100);color:var(--pink600)}
+.org-group-heading .org-group-eyebrow.lvl-3{background:var(--p100);color:var(--p800)}
+
+.org-grid{display:grid;gap:24px}
+.org-grid-lvl-1{grid-template-columns:repeat(2,1fr);max-width:800px;margin:0 auto}
+.org-grid-lvl-2{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+.org-grid-lvl-3{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));max-width:1100px;margin:0 auto}
+
+.org-card{background:var(--w);border:1px solid var(--p100);border-radius:22px;padding:28px 24px 22px;text-align:center;transition:.4s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;align-items:center;box-shadow:0 4px 16px rgba(46,99,71,.06)}
+.org-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(46,99,71,.18);border-color:var(--p300)}
+.org-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transition:height .3s}
+.org-card.level-1::before{background:linear-gradient(to right,var(--g400),var(--g600))}
+.org-card.level-2::before{background:linear-gradient(to right,var(--pink400),var(--pink600))}
+.org-card.level-3::before{background:linear-gradient(to right,var(--p400),var(--p600))}
+.org-card:hover::before{height:6px}
+
+.org-photo{width:104px;height:104px;border-radius:50%;background:linear-gradient(135deg,var(--p400),var(--p600));background-size:cover;background-position:center;margin-bottom:18px;flex-shrink:0;border:4px solid var(--w);box-shadow:0 10px 24px rgba(46,99,71,.15);position:relative;overflow:hidden;transition:.3s}
+.org-card:hover .org-photo{transform:scale(1.05)}
+.org-card.level-1 .org-photo{border-color:var(--g400);box-shadow:0 10px 24px rgba(212,175,55,.3)}
+.org-card.level-2 .org-photo{border-color:var(--pink300);box-shadow:0 10px 24px rgba(244,114,182,.25)}
+.org-card.level-3 .org-photo{border-color:var(--p300);box-shadow:0 10px 24px rgba(70,157,111,.2)}
+.org-photo-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9)}
+
+.org-name{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;color:var(--p900);line-height:1.3;margin-bottom:6px;word-break:break-word}
+.org-card.level-1 .org-name{font-size:1.18rem}
+.org-position{font-size:12.5px;color:var(--gr500);font-weight:500;line-height:1.5;margin-bottom:10px}
+.org-tupoksi{font-size:12px;color:var(--gr500);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;min-height:36px}
+.org-detail-hint{margin-top:14px;font-size:11px;color:var(--g600);font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px;transition:.2s}
+.org-card:hover .org-detail-hint{color:var(--g500);gap:7px}
+
+.org-skeleton{background:linear-gradient(90deg,var(--p50) 25%,var(--p100) 50%,var(--p50) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:22px;height:300px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
 .nilai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:0 auto}
 .nilai-card{background:var(--w);border:1px solid var(--p100);border-radius:20px;padding:28px 24px;text-align:center;transition:.35s}
 .nilai-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(46,99,71,.1);border-color:var(--p300)}
@@ -119,62 +162,52 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 .footer-list.with-icon svg{flex-shrink:0;margin-top:3px}
 .footer-bottom{border-top:1px solid var(--p700);padding:20px 0;text-align:center;font-size:12px;color:rgba(255,255,255,.6)}
 
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;animation:fadeIn .25s ease}
 .modal-overlay.active{display:flex}
-.modal{background:var(--w);border-radius:20px;max-width:460px;width:100%;padding:34px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.2);border:1px solid var(--p100)}
-.modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:none;background:transparent;font-size:22px;color:var(--gr500);cursor:pointer}
-.modal-close:hover{background:var(--p50)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--w);border-radius:24px;max-width:640px;width:100%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3);border:1px solid var(--p100);margin:auto;overflow:hidden;animation:slideUp .35s cubic-bezier(.22,.61,.36,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.modal.modal-narrow{max-width:460px;padding:34px}
+.modal-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.95);font-size:24px;color:var(--gr700);cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.modal-close:hover{background:var(--p50);transform:rotate(90deg)}
+
+.staff-detail-header{padding:36px 36px 24px;background:linear-gradient(135deg,var(--p50),var(--p100));text-align:center;position:relative;overflow:hidden}
+.staff-detail-header::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(212,175,55,.12)}
+.staff-detail-header.level-1{background:linear-gradient(135deg,#fef3c7,var(--p100))}
+.staff-detail-header.level-2{background:linear-gradient(135deg,var(--pink50),var(--p100))}
+.staff-detail-photo{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--p400),var(--p600));background-size:cover;background-position:center;margin:0 auto 18px;border:4px solid var(--w);box-shadow:0 12px 30px rgba(46,99,71,.25);position:relative;z-index:1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);overflow:hidden}
+.staff-detail-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--p900);line-height:1.25;margin-bottom:8px;position:relative;z-index:1}
+.staff-detail-position{font-size:14.5px;color:var(--p700);font-weight:600;position:relative;z-index:1}
+.staff-detail-body{padding:28px 36px 36px}
+.staff-detail-section{margin-bottom:24px}
+.staff-detail-section:last-child{margin-bottom:0}
+.staff-detail-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g600);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.staff-detail-label svg{color:var(--g500)}
+.staff-detail-text{font-size:14.5px;color:var(--gr700);line-height:1.8;background:var(--p50);padding:16px 18px;border-radius:14px;border:1px solid var(--p100)}
+.staff-detail-contact{display:flex;flex-direction:column;gap:10px}
+.staff-detail-contact a,.staff-detail-contact div{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--p50);border:1px solid var(--p100);border-radius:12px;font-size:14px;color:var(--gr700);text-decoration:none;transition:.2s}
+.staff-detail-contact a:hover{background:var(--w);border-color:var(--p400);transform:translateX(3px)}
+.staff-detail-contact svg{color:var(--p600);flex-shrink:0}
 
 @media(max-width:900px){
   .footer-grid{grid-template-columns:1fr;gap:32px}
   .vm-grid{grid-template-columns:1fr}
   .intro-card{padding:36px 26px}
+  .org-grid-lvl-1{grid-template-columns:1fr;max-width:340px}
+  .org-grid-lvl-3{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
 
   .nav-toggle{display:inline-flex}
-
   .nav-links{
-    display:flex;
-    position:absolute;
-    top:72px;
-    left:-20px;
-    right:-20px;
-    background:#fff;
-    flex-direction:column;
-    align-items:stretch;
-    gap:4px;
-    padding:16px 20px 20px;
+    display:flex;position:absolute;top:72px;left:-20px;right:-20px;background:#fff;
+    flex-direction:column;align-items:stretch;gap:4px;padding:16px 20px 20px;
     box-shadow:0 12px 30px rgba(46,99,71,.15);
-    border-top:1px solid var(--p100);
-    border-bottom:1px solid var(--p100);
-    z-index:60;
-    opacity:0;
-    transform:translateY(-12px);
-    pointer-events:none;
-    visibility:hidden;
+    border-top:1px solid var(--p100);border-bottom:1px solid var(--p100);
+    z-index:60;opacity:0;transform:translateY(-12px);pointer-events:none;visibility:hidden;
     transition:opacity .3s ease, transform .3s ease, visibility .3s;
   }
-  .nav-links.open{
-    opacity:1;
-    transform:translateY(0);
-    pointer-events:auto;
-    visibility:visible;
-  }
-  .nav-links .nav-link,
-  .nav-links .nav-link-edoo{
-    padding:14px 18px;
-    font-size:15px;
-    text-align:left;
-    border-radius:12px;
-    opacity:0;
-    transform:translateY(-6px);
-    transition:opacity .25s ease, transform .25s ease;
-  }
-  .nav-links.open .nav-link,
-  .nav-links.open .nav-link-edoo,
-  .nav-links.open .btn{
-    opacity:1;
-    transform:translateY(0);
-  }
+  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;visibility:visible}
+  .nav-links .nav-link,.nav-links .nav-link-edoo{padding:14px 18px;font-size:15px;text-align:left;border-radius:12px;opacity:0;transform:translateY(-6px);transition:opacity .25s ease, transform .25s ease}
+  .nav-links.open .nav-link,.nav-links.open .nav-link-edoo,.nav-links.open .btn{opacity:1;transform:translateY(0)}
   .nav-links.open .nav-link:nth-child(1){transition-delay:.05s}
   .nav-links.open .nav-link:nth-child(2){transition-delay:.1s}
   .nav-links.open .nav-link:nth-child(3){transition-delay:.15s}
@@ -182,17 +215,15 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .nav-links.open .nav-link:nth-child(5){transition-delay:.25s}
   .nav-links.open .nav-link:nth-child(6){transition-delay:.3s}
   .nav-links.open .nav-link-edoo{transition-delay:.35s}
-  .nav-links .btn{
-    width:100%;
-    justify-content:center;
-    padding:14px;
-    font-size:15px;
-    margin-top:8px;
-    opacity:0;
-    transform:translateY(-6px);
-    transition:opacity .25s ease, transform .25s ease;
-  }
+  .nav-links .btn{width:100%;justify-content:center;padding:14px;font-size:15px;margin-top:8px;opacity:0;transform:translateY(-6px);transition:opacity .25s ease, transform .25s ease}
   .nav-links.open .btn{transition-delay:.4s}
+}
+@media(max-width:640px){
+  .org-grid-lvl-3{grid-template-columns:1fr;max-width:340px}
+  .org-photo{width:88px;height:88px}
+  .staff-detail-header{padding:28px 22px 20px}
+  .staff-detail-body{padding:22px 22px 28px}
+  .staff-detail-name{font-size:1.3rem}
 }
 </style>
 </head>
@@ -306,6 +337,49 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   </div>
 </section>
 
+<!-- ============ SECTION STRUKTUR ORGANISASI ============ -->
+<section class="org-section" id="struktur">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Struktur Organisasi</span>
+      <h2>Tim Perpustakaan At-Taklim</h2>
+      <div class="line"></div>
+    </div>
+
+    <div id="orgContainer">
+      <div class="org-group" id="orgGroup1" style="display:none">
+        <div class="org-group-heading">
+          <span class="org-group-eyebrow lvl-1">Pimpinan Madrasah</span>
+        </div>
+        <div class="org-grid org-grid-lvl-1" id="orgGrid1"></div>
+      </div>
+
+      <div class="org-group" id="orgGroup2" style="display:none">
+        <div class="org-group-heading">
+          <span class="org-group-eyebrow lvl-2">Pimpinan Unit</span>
+        </div>
+        <div class="org-grid org-grid-lvl-2" id="orgGrid2"></div>
+      </div>
+
+      <div class="org-group" id="orgGroup3" style="display:none">
+        <div class="org-group-heading">
+          <span class="org-group-eyebrow lvl-3">Tim Staff</span>
+        </div>
+        <div class="org-grid org-grid-lvl-3" id="orgGrid3"></div>
+      </div>
+
+      <div id="orgLoading" style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
+        <div class="org-skeleton" style="width:280px"></div>
+        <div class="org-skeleton" style="width:280px"></div>
+      </div>
+
+      <div id="orgEmpty" style="display:none;text-align:center;padding:60px 20px;color:var(--gr500)">
+        <p>Belum ada data struktur organisasi. Tambahkan dari halaman admin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="section-heading">
@@ -414,8 +488,15 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   <div class="footer-bottom">© <span id="year"></span> Perpustakaan At-Taklim MAN 1 Kota Gorontalo. All rights reserved.</div>
 </footer>
 
-<div class="modal-overlay" id="ipModal">
+<div class="modal-overlay" id="staffModal">
   <div class="modal">
+    <button class="modal-close" data-close-staff>&times;</button>
+    <div id="staffModalContent"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="ipModal">
+  <div class="modal modal-narrow">
     <button class="modal-close" data-close-ip>&times;</button>
     <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--p500),var(--p700));display:flex;align-items:center;justify-content:center;color:var(--w);margin-bottom:18px">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
@@ -447,45 +528,190 @@ document.querySelectorAll('a[href]').forEach(link => {
   });
 });
 
-// === Hamburger Menu (PATCH: ditambahkan) ===
+// === Hamburger Menu ===
 (function(){
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   if(!toggle || !links) return;
-
-  function closeMenu(){
-    links.classList.remove('open');
-    toggle.classList.remove('open');
-  }
-  function openMenu(){
-    links.classList.add('open');
-    toggle.classList.add('open');
-  }
-
+  function closeMenu(){ links.classList.remove('open'); toggle.classList.remove('open'); }
+  function openMenu(){ links.classList.add('open'); toggle.classList.add('open'); }
   toggle.addEventListener('click', function(e){
     e.stopPropagation();
     links.classList.contains('open') ? closeMenu() : openMenu();
   });
-
   document.addEventListener('click', function(e){
     if(!links.classList.contains('open')) return;
     if(links.contains(e.target) || toggle.contains(e.target)) return;
     closeMenu();
   });
-
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', closeMenu);
-  });
-
-  window.addEventListener('resize', function(){
-    if(window.innerWidth > 900) closeMenu();
-  });
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeMenu();
-  });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 900) closeMenu(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
 })();
 
+// === Utilities ===
+function esc(s){if(!s)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+
+const AVATAR_COLORS = [
+  'linear-gradient(135deg,#5bbf8a,#387d59)','linear-gradient(135deg,#e6c76a,#b8942c)',
+  'linear-gradient(135deg,#7fd3a6,#469d6f)','linear-gradient(135deg,#a5e3c2,#387d59)',
+  'linear-gradient(135deg,#10b981,#047857)','linear-gradient(135deg,#f59e0b,#b45309)',
+  'linear-gradient(135deg,#8b5cf6,#6d28d9)','linear-gradient(135deg,#ec4899,#be185d)',
+  'linear-gradient(135deg,#06b6d4,#0e7490)','linear-gradient(135deg,#ef4444,#b91c1c)'
+];
+function getAvatarColor(name){
+  if(!name) return AVATAR_COLORS[0];
+  let hash = 0;
+  for(let i = 0; i < name.length; i++){ hash = name.charCodeAt(i) + ((hash << 5) - hash); }
+  return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+}
+
+// ==================== STAFF / STRUKTUR ORGANISASI ====================
+let STAFF = [];
+
+async function loadStaff(){
+  const loadingEl = document.getElementById('orgLoading');
+  const emptyEl = document.getElementById('orgEmpty');
+  const group1 = document.getElementById('orgGroup1');
+  const group2 = document.getElementById('orgGroup2');
+  const group3 = document.getElementById('orgGroup3');
+  const grid1 = document.getElementById('orgGrid1');
+  const grid2 = document.getElementById('orgGrid2');
+  const grid3 = document.getElementById('orgGrid3');
+  if(!grid1) return;
+
+  try {
+    const SUPABASE_URL = window.APP_CONFIG.SUPABASE_URL;
+    const SUPABASE_ANON_KEY = window.APP_CONFIG.SUPABASE_ANON_KEY;
+    const res = await fetch(SUPABASE_URL + '/rest/v1/staff?select=*&order=level.asc,order_num.asc,id.asc', {
+      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+    });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    STAFF = await res.json();
+    console.log('✅ Loaded', STAFF.length, 'staff');
+
+    loadingEl.style.display = 'none';
+
+    const level1 = STAFF.filter(s => s.level === 1);
+    const level2 = STAFF.filter(s => s.level === 2);
+    const level3 = STAFF.filter(s => s.level === 3);
+
+    // Level 1
+    if(level1.length > 0){
+      group1.style.display = 'block';
+      grid1.innerHTML = level1.map(s => renderOrgCard(s)).join('');
+    } else {
+      group1.style.display = 'none';
+    }
+
+    // Level 2
+    if(level2.length > 0){
+      group2.style.display = 'block';
+      grid2.innerHTML = level2.map(s => renderOrgCard(s)).join('');
+    } else {
+      group2.style.display = 'none';
+    }
+
+    // Level 3
+    if(level3.length > 0){
+      group3.style.display = 'block';
+      grid3.innerHTML = level3.map(s => renderOrgCard(s)).join('');
+    } else {
+      group3.style.display = 'none';
+    }
+
+    if(level1.length === 0 && level2.length === 0 && level3.length === 0){
+      emptyEl.style.display = 'block';
+    }
+
+    // Attach click handler
+    document.querySelectorAll('.org-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = parseInt(card.dataset.staffId, 10);
+        openStaffDetail(id);
+      });
+    });
+
+  } catch(err) {
+    console.error('❌ Gagal load staff:', err);
+    loadingEl.style.display = 'none';
+    emptyEl.style.display = 'block';
+    emptyEl.innerHTML = '<p>Gagal memuat data struktur organisasi.</p>';
+  }
+}
+
+function renderOrgCard(s){
+  const photoStyle = s.photo
+    ? 'background-image:url(\'' + esc(s.photo) + '\');background-size:cover;background-position:center'
+    : 'background:' + getAvatarColor(s.name);
+  const photoContent = s.photo
+    ? ''
+    : '<div class="org-photo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>';
+
+  return '<article class="org-card level-' + s.level + '" data-staff-id="' + s.id + '">' +
+    '<div class="org-photo" style="' + photoStyle + '">' + photoContent + '</div>' +
+    '<h3 class="org-name">' + esc(s.name) + '</h3>' +
+    '<p class="org-position">' + esc(s.position) + '</p>' +
+    (s.tupoksi ? '<p class="org-tupoksi">' + esc(s.tupoksi) + '</p>' : '') +
+    '<div class="org-detail-hint">Lihat Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>' +
+  '</article>';
+}
+
+// === Modal Detail Staff ===
+const staffModal = document.getElementById('staffModal');
+const staffModalContent = document.getElementById('staffModalContent');
+
+function openStaffDetail(id){
+  const s = STAFF.find(x => x.id === id);
+  if(!s) return;
+
+  const photoStyle = s.photo
+    ? 'background-image:url(\'' + esc(s.photo) + '\');background-size:cover;background-position:center'
+    : 'background:' + getAvatarColor(s.name);
+  const photoContent = s.photo
+    ? ''
+    : '<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+
+  staffModalContent.innerHTML =
+    '<div class="staff-detail-header level-' + s.level + '">' +
+      '<div class="staff-detail-photo" style="' + photoStyle + '">' + photoContent + '</div>' +
+      '<h2 class="staff-detail-name">' + esc(s.name) + '</h2>' +
+      '<p class="staff-detail-position">' + esc(s.position) + '</p>' +
+    '</div>' +
+    '<div class="staff-detail-body">' +
+      (s.tupoksi ?
+        '<div class="staff-detail-section">' +
+          '<div class="staff-detail-label">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>' +
+            'Tugas Pokok &amp; Fungsi' +
+          '</div>' +
+          '<div class="staff-detail-text">' + esc(s.tupoksi) + '</div>' +
+        '</div>'
+        : '') +
+      ((s.email || s.phone) ?
+        '<div class="staff-detail-section">' +
+          '<div class="staff-detail-label">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+            'Kontak' +
+          '</div>' +
+          '<div class="staff-detail-contact">' +
+            (s.email ? '<a href="mailto:' + esc(s.email) + '"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>' + esc(s.email) + '</a>' : '') +
+            (s.phone ? '<div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' + esc(s.phone) + '</div>' : '') +
+          '</div>' +
+        '</div>'
+        : '') +
+    '</div>';
+
+  staffModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeStaffDetail(){
+  staffModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ==================== SLiMS MODAL ====================
 const ipModal = document.getElementById('ipModal');
 const ipInput = document.getElementById('ipInput');
 
@@ -512,13 +738,28 @@ ipInput.addEventListener('keydown', e => {
 
 document.querySelectorAll('[data-close-ip]').forEach(b => b.addEventListener('click', () => ipModal.classList.remove('active')));
 ipModal.addEventListener('click', e => { if(e.target === ipModal) ipModal.classList.remove('active'); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') ipModal.classList.remove('active'); });
+
+// === Global events ===
+document.addEventListener('click', e => {
+  if(e.target.closest('[data-close-staff]')) closeStaffDetail();
+  if(e.target.classList.contains('modal-overlay') && !e.target.closest('.modal')) e.target.classList.remove('active');
+});
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    if(staffModal.classList.contains('active')) closeStaffDetail();
+    else if(ipModal.classList.contains('active')) ipModal.classList.remove('active');
+  }
+});
 
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Load data struktur organisasi
+loadStaff();
 </script>
 </body>
 </html>
