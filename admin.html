@@ -199,7 +199,7 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
 .sidebar-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .3s;z-index:99}
 .sidebar-backdrop.active{opacity:1;pointer-events:auto}
 
-/* ============ PATCH #2: CSS SWITCH (MAINTENANCE TOGGLE) ============ */
+/* PATCH: CSS SWITCH (MAINTENANCE TOGGLE) */
 .switch{position:relative;display:inline-block;width:56px;height:32px;flex-shrink:0}
 .switch input{opacity:0;width:0;height:0;position:absolute}
 .switch-slider{position:absolute;cursor:pointer;inset:0;background:var(--gr300);border-radius:999px;transition:.3s;box-shadow:inset 0 2px 4px rgba(0,0,0,.1)}
@@ -221,6 +221,12 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
 .maintenance-status-banner.on{background:linear-gradient(135deg,var(--pink50),var(--pink100));border:1.5px solid var(--pink300);color:var(--pink600)}
 .maintenance-status-banner.off{background:var(--p50);border:1.5px solid var(--p300);color:var(--p700)}
 .maintenance-status-banner svg{flex-shrink:0}
+
+/* PATCH: STAFF / STRUKTUR ORGANISASI */
+.staff-level-badge{display:inline-block;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--p100);color:var(--p800)}
+.staff-level-badge.lvl1{background:#fef3c7;color:#92400e}
+.staff-level-badge.lvl2{background:var(--pink100);color:var(--pink600)}
+.staff-level-badge.lvl3{background:var(--gr100);color:var(--gr600)}
 
 @media(max-width:900px){
   .sidebar{transform:translateX(-100%)}
@@ -323,11 +329,14 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
         <span id="pesanBadge" style="display:none;margin-left:auto;background:var(--pink500);color:#fff;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;min-width:20px;text-align:center">0</span>
       </a>
 
-      <!-- ============ PATCH #1: SIDEBAR LINK PENGATURAN ============ -->
       <div class="sidebar-nav-label">Sistem</div>
       <a class="sidebar-link" data-page="pengaturan">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         Pengaturan
+      </a>
+      <a class="sidebar-link" data-page="staff">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Struktur Organisasi
       </a>
     </nav>
 
@@ -578,7 +587,6 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
         </div>
       </div>
 
-      <!-- ============ PATCH #3: HALAMAN HTML PENGATURAN ============ -->
       <div class="page" data-page="pengaturan">
         <div class="maintenance-status-banner" id="maintenanceBanner">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
@@ -640,7 +648,7 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
           <div class="card-head">
             <div>
               <h3>Informasi Sistem</h3>
-              <p>Ringkasan status website & database</p>
+              <p>Ringkasan status website &amp; database</p>
             </div>
           </div>
           <div class="card-body">
@@ -662,6 +670,41 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
                 <h4>Admin Login</h4>
                 <p id="settingsAdminEmail">—</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HALAMAN STRUKTUR ORGANISASI -->
+      <div class="page" data-page="staff">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Struktur Organisasi</h3>
+              <p>Kelola anggota struktur organisasi perpustakaan</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddStaff">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              Tambah Anggota
+            </button>
+          </div>
+          <div class="card-body no-pad">
+            <div class="table-wrap">
+              <table class="data" id="staffTable">
+                <thead>
+                  <tr>
+                    <th class="td-img">Foto</th>
+                    <th>Nama &amp; Jabatan</th>
+                    <th>Level</th>
+                    <th>Urutan</th>
+                    <th>Kontak</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="staffTableBody">
+                  <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--gr400)">Memuat data...</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -930,6 +973,84 @@ table.data .td-actions{display:flex;gap:6px;flex-wrap:nowrap}
   </div>
 </div>
 
+<!-- MODAL STAFF -->
+<div class="modal-overlay" id="modalStaff">
+  <div class="modal modal-lg">
+    <div class="modal-head">
+      <h3 id="modalStaffTitle">Tambah Anggota</h3>
+      <p>Isi detail anggota struktur organisasi</p>
+      <button class="modal-close" data-close-modal="modalStaff">&times;</button>
+    </div>
+    <form id="formStaff">
+      <div class="modal-body">
+        <input type="hidden" id="staffId" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="staffName" required placeholder="Dr. H. Karjianto, S.Pd.I., M.Pd." />
+          </div>
+          <div class="form-group">
+            <label>Jabatan *</label>
+            <input type="text" id="staffPosition" required placeholder="Kepala Madrasah" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Level *</label>
+            <select id="staffLevel" required>
+              <option value="1">Level 1 — Pimpinan Madrasah</option>
+              <option value="2">Level 2 — Pimpinan Unit</option>
+              <option value="3" selected>Level 3 — Staff</option>
+            </select>
+            <span class="form-hint">Level 1: 2 kartu atas. Level 2: 1 kartu tengah. Level 3: grid staff.</span>
+          </div>
+          <div class="form-group">
+            <label>Urutan</label>
+            <input type="number" id="staffOrder" placeholder="0" value="0" min="0" />
+            <span class="form-hint">Kecil = tampil lebih dulu.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="staffEmail" placeholder="nama@man1gorontalo.sch.id" />
+          </div>
+          <div class="form-group">
+            <label>Telepon / WA</label>
+            <input type="text" id="staffPhone" placeholder="0812-xxxx-xxxx" />
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>Tugas Pokok &amp; Fungsi (Tupoksi)</label>
+            <textarea id="staffTupoksi" placeholder="Menjelaskan tugas utama dan fungsi jabatan..." style="min-height:100px"></textarea>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>Foto</label>
+            <div class="image-preview" id="staffPhotoPreview">
+              <input type="file" id="staffPhotoFile" accept="image/*" />
+              <div id="staffPhotoText" style="text-align:center;padding:20px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-bottom:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                <div>Klik untuk upload foto</div>
+                <div style="font-size:11px;color:var(--gr400);margin-top:4px">JPG, PNG max 5 MB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" data-close-modal="modalStaff">Batal</button>
+        <button type="submit" class="btn btn-primary" id="btnSaveStaff">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+          Simpan
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <div class="toast" id="toast">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
   <span id="toastMsg">Berhasil</span>
@@ -953,10 +1074,12 @@ let BOOKS = [];
 let REVIEWS = [];
 let MESSAGES = [];
 let SETTINGS = {};
+let STAFF = [];
 let pendingDelete = null;
 let coverFileData = null;
 let extraFilesData = [];
 let bukuCoverFileData = null;
+let staffPhotoFileData = null;
 let bukuVisibleCount = 30;
 let currentUlasanId = null;
 let currentPesanId = null;
@@ -1136,17 +1259,16 @@ document.getElementById('logoutBtn').addEventListener('click', async () => {
 });
 
 // ==================== NAVIGATION ====================
-// PATCH #4: pageInfo tambah pengaturan
 const pageInfo = {
   dashboard: { title: 'Dashboard', sub: 'Ringkasan statistik perpustakaan' },
   galeri: { title: 'Galeri Kegiatan', sub: 'Kelola kegiatan perpustakaan' },
   buku: { title: 'Koleksi Buku', sub: 'Kelola koleksi buku perpustakaan' },
   ulasan: { title: 'Ulasan Pengunjung', sub: 'Moderasi ulasan pengunjung' },
   pesan: { title: 'Pesan Masuk', sub: 'Pesan dari pengunjung website' },
-  pengaturan: { title: 'Pengaturan', sub: 'Konfigurasi website & mode maintenance' }
+  pengaturan: { title: 'Pengaturan', sub: 'Konfigurasi website & mode maintenance' },
+  staff: { title: 'Struktur Organisasi', sub: 'Kelola anggota struktur organisasi perpustakaan' }
 };
 
-// PATCH #5: handler sidebar tambah loadPengaturan
 document.querySelectorAll('.sidebar-link').forEach(link => {
   link.addEventListener('click', () => {
     const page = link.dataset.page;
@@ -1164,6 +1286,7 @@ document.querySelectorAll('.sidebar-link').forEach(link => {
     if(page === 'ulasan') loadUlasan();
     if(page === 'pesan') loadPesan();
     if(page === 'pengaturan') loadPengaturan();
+    if(page === 'staff') loadStaff();
   });
 });
 
@@ -1945,7 +2068,7 @@ function deletePesan(id){
   });
 }
 
-// ==================== PATCH #6: JS SETTINGS / PENGATURAN ====================
+// ==================== PENGATURAN ====================
 async function loadPengaturan(){
   const toggle = document.getElementById('maintenanceModeToggle');
   const msgEl = document.getElementById('maintenanceMessage');
@@ -1955,7 +2078,6 @@ async function loadPengaturan(){
   const banner = document.getElementById('maintenanceBanner');
   const bannerText = document.getElementById('maintenanceBannerText');
 
-  // Reset form ke default
   toggle.checked = false;
   toggle.disabled = true;
   msgEl.value = '';
@@ -1979,7 +2101,6 @@ async function loadPengaturan(){
     contactEl.value = SETTINGS.maintenance_contact || '';
 
     if(SETTINGS.maintenance_until){
-      // Konversi ISO → format datetime-local (YYYY-MM-DDTHH:MM)
       const dt = new Date(SETTINGS.maintenance_until);
       if(!isNaN(dt.getTime())){
         const pad = n => String(n).padStart(2, '0');
@@ -1999,7 +2120,6 @@ async function loadPengaturan(){
       bannerText.textContent = 'Mode maintenance NONAKTIF. Website dapat diakses publik seperti biasa.';
     }
 
-    // Info sistem
     let latestUpdate = '';
     (data || []).forEach(row => {
       if(row.updated_at && (!latestUpdate || row.updated_at > latestUpdate)){
@@ -2019,7 +2139,6 @@ async function loadPengaturan(){
 
 async function setSetting(key, value){
   const now = new Date().toISOString();
-  // Cek apakah key sudah ada
   const { data: existing, error: checkErr } = await supa
     .from('settings').select('id').eq('key', key).limit(1);
 
@@ -2050,7 +2169,6 @@ async function savePengaturan(){
   const contact = contactEl.value.trim();
   let until = untilEl.value;
 
-  // Validasi
   if(isOn && !msg){
     showToast('Pesan maintenance wajib diisi saat mode aktif', 'error');
     msgEl.focus();
@@ -2062,7 +2180,6 @@ async function savePengaturan(){
     return;
   }
 
-  // Konversi datetime-local → ISO (kalau ada)
   let untilISO = '';
   if(until){
     const dt = new Date(until);
@@ -2092,19 +2209,195 @@ async function savePengaturan(){
   }
 }
 
-// Event listeners untuk halaman pengaturan
 document.getElementById('btnSavePengaturan').addEventListener('click', savePengaturan);
 
 document.getElementById('btnPreviewMaintenance').addEventListener('click', () => {
   window.open('maintenance.html', '_blank', 'noopener');
 });
 
-// Konfirmasi saat toggle maintenance diubah
 document.getElementById('maintenanceModeToggle').addEventListener('change', (e) => {
   if(e.target.checked){
     showToast('Klik "Simpan Pengaturan" untuk mengaktifkan maintenance', 'pink');
   }
 });
+
+// ==================== STAFF / STRUKTUR ORGANISASI ====================
+async function loadStaff(){
+  const tbody = document.getElementById('staffTableBody');
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--gr400)">Memuat data...</td></tr>';
+
+  try {
+    const { data, error } = await supa.from('staff')
+      .select('*')
+      .order('level', { ascending: true })
+      .order('order_num', { ascending: true })
+      .order('id', { ascending: true });
+    if(error) throw error;
+    STAFF = data || [];
+    renderStaffTable();
+  } catch(err){
+    console.error('Load staff error:', err);
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--red)">Gagal memuat data: ' + esc(err.message) + '</td></tr>';
+  }
+}
+
+function renderStaffTable(){
+  const tbody = document.getElementById('staffTableBody');
+
+  if(STAFF.length === 0){
+    tbody.innerHTML = '<tr><td colspan="6"><div class="empty"><div class="empty-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Belum ada anggota</h4><p>Klik "Tambah Anggota" untuk menambahkan anggota struktur organisasi pertama.</p></div></td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = STAFF.map(s => {
+    const photoStyle = s.photo ? 'background-image:url(\'' + esc(s.photo) + '\');background-size:cover;background-position:center' : 'background:linear-gradient(135deg,#a5e3c2,#469d6f)';
+    const levelLabel = s.level === 1 ? 'Level 1' : s.level === 2 ? 'Level 2' : 'Level 3';
+    const levelClass = s.level === 1 ? 'lvl1' : s.level === 2 ? 'lvl2' : 'lvl3';
+    return '<tr>' +
+      '<td class="td-img"><div style="width:52px;height:52px;border-radius:50%;' + photoStyle + '"></div></td>' +
+      '<td><div class="td-title">' + esc(s.name) + '</div><div class="td-sub">' + esc(s.position) + '</div></td>' +
+      '<td><span class="staff-level-badge ' + levelClass + '">' + levelLabel + '</span></td>' +
+      '<td>' + (s.order_num || 0) + '</td>' +
+      '<td><div style="font-size:12px;color:var(--gr600)">' + (s.email ? esc(s.email) : '<span style="color:var(--gr400)">-</span>') + '</div>' + (s.phone ? '<div style="font-size:11.5px;color:var(--gr500)">' + esc(s.phone) + '</div>' : '') + '</td>' +
+      '<td><div class="td-actions">' +
+        '<button class="btn btn-outline btn-sm btn-icon js-edit-staff" data-id="' + s.id + '" title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>' +
+        '<button class="btn btn-danger btn-sm btn-icon js-delete-staff" data-id="' + s.id + '" title="Hapus"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>' +
+      '</div></td>' +
+    '</tr>';
+  }).join('');
+
+  document.querySelectorAll('.js-edit-staff').forEach(btn => {
+    btn.addEventListener('click', () => openStaffModal(parseInt(btn.dataset.id, 10)));
+  });
+  document.querySelectorAll('.js-delete-staff').forEach(btn => {
+    btn.addEventListener('click', () => deleteStaff(parseInt(btn.dataset.id, 10)));
+  });
+}
+
+function openStaffModal(id){
+  staffPhotoFileData = null;
+  document.getElementById('formStaff').reset();
+  document.getElementById('staffId').value = '';
+  document.getElementById('staffPhotoPreview').style.backgroundImage = '';
+  document.getElementById('staffPhotoPreview').classList.remove('has-image');
+  document.getElementById('staffPhotoText').style.display = 'block';
+
+  if(id){
+    const s = STAFF.find(x => x.id === id);
+    if(!s) return;
+    document.getElementById('modalStaffTitle').textContent = 'Edit Anggota';
+    document.getElementById('staffId').value = s.id;
+    document.getElementById('staffName').value = s.name || '';
+    document.getElementById('staffPosition').value = s.position || '';
+    document.getElementById('staffLevel').value = s.level || 3;
+    document.getElementById('staffOrder').value = s.order_num || 0;
+    document.getElementById('staffEmail').value = s.email || '';
+    document.getElementById('staffPhone').value = s.phone || '';
+    document.getElementById('staffTupoksi').value = s.tupoksi || '';
+
+    if(s.photo){
+      staffPhotoFileData = { url: s.photo, isExisting: true };
+      document.getElementById('staffPhotoPreview').style.backgroundImage = 'url(\'' + s.photo + '\')';
+      document.getElementById('staffPhotoPreview').classList.add('has-image');
+      document.getElementById('staffPhotoText').style.display = 'none';
+    }
+  } else {
+    document.getElementById('modalStaffTitle').textContent = 'Tambah Anggota';
+  }
+
+  openModal('modalStaff');
+}
+
+document.getElementById('btnAddStaff').addEventListener('click', () => openStaffModal());
+
+document.getElementById('staffPhotoFile').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  if(file.size > 5 * 1024 * 1024){
+    showToast('Ukuran file maksimal 5 MB', 'error');
+    return;
+  }
+  staffPhotoFileData = { file, isExisting: false };
+  fileToPreview(file, (dataUrl) => {
+    document.getElementById('staffPhotoPreview').style.backgroundImage = 'url(\'' + dataUrl + '\')';
+    document.getElementById('staffPhotoPreview').classList.add('has-image');
+    document.getElementById('staffPhotoText').style.display = 'none';
+  });
+});
+
+document.getElementById('formStaff').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btnSaveStaff');
+  btn.disabled = true;
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<div class="spinner"></div> Menyimpan...';
+
+  try {
+    const id = document.getElementById('staffId').value;
+    const name = document.getElementById('staffName').value.trim();
+    const position = document.getElementById('staffPosition').value.trim();
+    const level = parseInt(document.getElementById('staffLevel').value, 10) || 3;
+    const orderNum = parseInt(document.getElementById('staffOrder').value, 10) || 0;
+    const email = document.getElementById('staffEmail').value.trim();
+    const phone = document.getElementById('staffPhone').value.trim();
+    const tupoksi = document.getElementById('staffTupoksi').value.trim();
+
+    let photoUrl = staffPhotoFileData && staffPhotoFileData.isExisting ? staffPhotoFileData.url : null;
+    if(staffPhotoFileData && staffPhotoFileData.file){
+      showLoading('Mengupload foto...');
+      photoUrl = await uploadImage(staffPhotoFileData.file, 'staff');
+    }
+
+    showLoading('Menyimpan ke database...');
+    const payload = {
+      name, position, level, order_num: orderNum,
+      email: email || null,
+      phone: phone || null,
+      tupoksi: tupoksi || null,
+      photo: photoUrl,
+      updated_at: new Date().toISOString()
+    };
+
+    if(id){
+      const { error } = await supa.from('staff').update(payload).eq('id', parseInt(id, 10));
+      if(error) throw error;
+      showToast('Anggota berhasil diperbarui', 'success');
+    } else {
+      const { error } = await supa.from('staff').insert(payload);
+      if(error) throw error;
+      showToast('Anggota berhasil ditambahkan', 'success');
+    }
+
+    closeModal('modalStaff');
+    await loadStaff();
+  } catch(err){
+    console.error('Save staff error:', err);
+    showToast('Gagal menyimpan: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
+    hideLoading();
+  }
+});
+
+function deleteStaff(id){
+  const s = STAFF.find(x => x.id === id);
+  if(!s) return;
+  confirmDelete('Anggota "' + s.name + '" akan dihapus permanen.', async () => {
+    try {
+      showLoading('Menghapus...');
+      const { error } = await supa.from('staff').delete().eq('id', id);
+      if(error) throw error;
+      showToast('Anggota berhasil dihapus', 'success');
+      await loadStaff();
+    } catch(err){
+      console.error('Delete staff error:', err);
+      showToast('Gagal menghapus: ' + err.message, 'error');
+    } finally {
+      hideLoading();
+    }
+  });
+}
 
 // ==================== START ====================
 initSupabase();
