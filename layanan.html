@@ -171,7 +171,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
   .nav-links.open .nav-link:nth-child(3){transition-delay:.15s}
   .nav-links.open .nav-link:nth-child(4){transition-delay:.2s}
   .nav-links.open .nav-link:nth-child(5){transition-delay:.25s}
-  .nav-links.open .nav-link-edoo{transition-delay:.3s}
+  .nav-links.open .nav-link:nth-child(6){transition-delay:.3s}
+  .nav-links.open .nav-link-edoo{transition-delay:.35s}
   .nav-links .btn{
     width:100%;
     justify-content:center;
@@ -182,7 +183,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
     transform:translateY(-6px);
     transition:opacity .25s ease, transform .25s ease;
   }
-  .nav-links.open .btn{transition-delay:.35s}
+  .nav-links.open .btn{transition-delay:.4s}
 }
 </style>
 </head>
@@ -213,6 +214,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
       <a href="index.html" class="nav-link">Beranda</a>
       <a href="koleksi.html" class="nav-link">Koleksi</a>
       <a href="layanan.html" class="nav-link active">Layanan</a>
+      <a href="galeri.html" class="nav-link">Galeri</a>
       <a href="tentang.html" class="nav-link">Tentang</a>
       <a href="kontak.html" class="nav-link">Kontak</a>
       <a href="https://app.edoo.id/login" target="_blank" rel="noopener" class="nav-link nav-link-edoo">E-Library 📖</a>
@@ -372,6 +374,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
         <li><a href="index.html">Beranda</a></li>
         <li><a href="koleksi.html">Koleksi Buku</a></li>
         <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="galeri.html">Galeri Kegiatan</a></li>
         <li><a href="tentang.html">Tentang</a></li>
         <li><a href="kontak.html">Kontak</a></li>
       </ul>
@@ -408,6 +411,7 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-he
 <script src="config.js"></script>
 <script src="maintenance-check.js"></script>
 <script>
+// === Page transition ===
 document.querySelectorAll('a[href]').forEach(link => {
   const href = link.getAttribute('href');
   if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
@@ -419,6 +423,45 @@ document.querySelectorAll('a[href]').forEach(link => {
     setTimeout(() => { window.location.href = href; }, 320);
   });
 });
+
+// === Hamburger Menu (PATCH: ditambahkan) ===
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if(!toggle || !links) return;
+
+  function closeMenu(){
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+  }
+  function openMenu(){
+    links.classList.add('open');
+    toggle.classList.add('open');
+  }
+
+  toggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    links.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  document.addEventListener('click', function(e){
+    if(!links.classList.contains('open')) return;
+    if(links.contains(e.target) || toggle.contains(e.target)) return;
+    closeMenu();
+  });
+
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 900) closeMenu();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMenu();
+  });
+})();
 
 const ipModal = document.getElementById('ipModal');
 const ipInput = document.getElementById('ipInput');
